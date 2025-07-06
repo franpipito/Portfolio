@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Franco Pipito - Portfolio</title>
+<style>
+    /* Estilos generales */
+    body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #222;
+    }
+
+    section {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: auto;
+    }
+
+    h1, h2, h3 {
+    margin-bottom: 0.5em;
+    }
+
+    a {
+    color: #0066cc;
+    text-decoration: none;
+    }
+
+    .hero {
+    text-align: center;
+    padding-top: 4rem;
+    }
+
+    .hero h1 {
+    font-size: 2.5rem;
+    }
+
+    .hero .btn {
+    background-color: #222;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1.5rem;
+    }
+
+    .about ul, .learning ul {
+    padding-left: 1.5rem;
+    }
+
+    .projects .project {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    }
+
+    .contact {
+    text-align: center;
+    }
+
+    .contact-icons a {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    }
+
+    .copy-btn {
+    margin-top: 1rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Franco Pipito</h1>
+    <p>Backend Developer Jr. listo para aportar valor desde el primer día.</p>
+    <div align="center">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="Csharp" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySql" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/>
+    </div>
+    <a href="https://github.com/franpipito" target="_blank" class="btn">Ver GitHub</a>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="about">
+    <h2>Sobre mí</h2>
+    <ul>
+    <li>Lenguajes principales: Python, C#</li>
+    <li>Framework actual: FastAPI</li>
+    <li>Back-end con bases sólidas: arquitectura, testing y APIs</li>
+    </ul>
+</section>
+
+<!-- PROYECTOS -->
+<section class="projects">
+    <h2>Proyectos destacados</h2>
+    <div id="projects-container">
+    <p>Cargando proyectos desde GitHub...</p>
+    </div>
+</section>
+
+<!-- APRENDIZAJES -->
+<section class="learning">
+    <h2>En progreso / Aprendizajes</h2>
+    <ul>
+    <li>FastAPI y desarrollo de APIs REST</li>
+    <li>Base de datos relacionales y NoSQL</li>
+    <li>Testing con Pytest / unittest</li>
+    <li>Simulacros de entrevistas técnicas</li>
+    </ul>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact">
+    <h2>Contacto</h2>
+    <p>franpipito7@gmail.com</p>
+    <div class="contact-icons">
+    <!-- GitHub -->
+<a href="https://github.com/franpipito" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="32" height="32">
+</a>
+
+<!-- LinkedIn -->
+<a href="https://www.linkedin.com/in/francopipito" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="32" height="32">
+</a>
+
+    </div>
+    <button class="copy-btn" onclick="copyEmail()">Copiar email</button>
+</section>
+
+<!-- JS: GitHub API + copiar email -->
+<script>
+    function copyEmail() {
+    navigator.clipboard.writeText("franpipito7@gmail.com").then(() => {
+        alert("Email copiado al portapapeles");
+    });
+    }
+
+    async function loadProjects() {
+    const container = document.getElementById('projects-container');
+    try {
+        const response = await fetch('https://api.github.com/users/franpipito/repos?sort=updated');
+        const repos = await response.json();
+
+        const filtered = repos.filter(repo =>
+        !repo.fork && repo.description
+        ).slice(0, 4); // mostrar solo los 4 más relevantes
+
+        if (filtered.length === 0) {
+        container.innerHTML = "<p>No se encontraron proyectos destacados.</p>";
+        return;
+        }
+
+        container.innerHTML = "";
+        filtered.forEach(repo => {
+        const div = document.createElement('div');
+        div.classList.add('project');
+        div.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description}</p>
+            <a href="${repo.html_url}" target="_blank">Ver repositorio</a>
+        `;
+        container.appendChild(div);
+        });
+    } catch (error) {
+        container.innerHTML = "<p>Error al cargar proyectos.</p>";
+    }
+    }
+
+    loadProjects();
+</script>
+
+</body>
+</html>
