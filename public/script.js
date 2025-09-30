@@ -35,7 +35,7 @@ navLinkItems.forEach((link) => {
 // ===================================
 
 const typingText = document.getElementById("typingText")
-const textToType = "Estudiante avanzado de Ingeniería Informática & Backend Developer"
+const textToType = "Full Stack Developer"
 let charIndex = 0
 
 function typeText() {
