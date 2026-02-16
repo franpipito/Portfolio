@@ -173,6 +173,7 @@ body {
 
 .hero-content {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   gap: var(--spacing-lg);
   position: relative;
@@ -206,7 +207,7 @@ body {
 .hero-text h1 {
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -216,9 +217,9 @@ body {
 .typing-text {
   font-size: 1.5rem;
   color: var(--text-secondary);
-  min-height: 2.5rem;
+  min-height: 2rem;
   display: block;
-  margin-bottom: var(--spacing-md);
+  margin: 0 0 0.75rem 0;
 }
 
 .typing-text::after {
@@ -240,6 +241,7 @@ body {
 .hero-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
+  margin-top: 0;
   margin-bottom: var(--spacing-md);
   max-width: 600px;
   line-height: 1.8;
@@ -532,6 +534,16 @@ section {
 
 .project-card:hover .project-image img {
   transform: scale(1.1);
+}
+
+.project-image img.project-image-automatizador {
+  object-fit: contain;
+  background-color: #0f1118;
+  padding: 0.4rem;
+}
+
+.project-card:hover .project-image img.project-image-automatizador {
+  transform: scale(1.02);
 }
 
 .project-content {
@@ -834,6 +846,12 @@ section {
     font-size: 1.2rem;
   }
 
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
@@ -854,6 +872,10 @@ section {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    height: 170px;
   }
 
   .footer-content {

@@ -40,13 +40,13 @@
                     <h1>Franco Pipito</h1>
                     <h2 class="typing-text" id="typingText"></h2>
                     <p class="hero-description">
-                        Full Stack Developer con foco en backend (Node.js, Express). Hoy construyo y mantengo aplicaciones web end-to-end, cuidando performance, seguridad y buenas prácticas. Estudiante avanzado de Ingeniería Informática.
+                        Construyo y mantengo aplicaciones web en producción con Node.js/Express y MySQL, integrando la API de Mercado Libre y automatizaciones con Google Drive (webhooks) + Google Sheets. Desarrollo sistemas end-to-end: sincronización, jobs en background, deduplicación, auditoría y operación en tiempo real.
                     </p>
                     <div class="hero-buttons">
                         <a href="#contacto" class="btn btn-primary">Contactar</a>
                         <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
                         <!-- Added CV download button -->
-                        <a href="./assets/FRANCO_PIPITO_CV25.pdf" class="btn btn-secondary" download>Descargar CV</a>
+                        <a href="./assets/imagenes/FRANCO PIPITO - CV 2026 (4).pdf" class="btn btn-secondary" download>Descargar CV</a>
                     </div>
                 </div>
             </div>
@@ -118,10 +118,7 @@
                         <h3>Fullstack Developer</h3>
                         <h4>TodoMicro</h4>
                         <p>
-                            Desarrollo de aplicaciones web completas utilizando tecnologías modernas. 
-                            Implementación de APIs RESTful con Node.js y Express.js, diseño de bases 
-                            de datos relacionales, y creación de interfaces de usuario responsivas. 
-                            Colaboración en equipo utilizando metodologías ágiles y control de versiones con Git.
+                            Desarrollo y mantengo aplicaciones internas end-to-end en produccion. Implemento APIs y lógica de negocio con Node.js/Express, integraciones con la API de Mercado Libre y Google APIs, y trabajo con MySQL para trazabilidad y consistencia de datos. Implementé mejoras y automatizaciones para sincronizar precios, stock y estado de publicaciones, y colaboro en corrección de bugs, mantenimiento evolutivo y estabilidad operativa.
                         </p>
                         <div class="tags">
                             <span class="tag">Node.js</span>
@@ -159,6 +156,52 @@
         <div class="container">
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="./assets/imagenes/loginTM.png" alt="Panorama ServidorMain - Login">
+                    </div>
+                    <div class="project-content">
+                        <h3>Aplicacion logistica</h3>
+                        <p>
+                            Aplicacion interna de logistica construida con Express + Socket.IO y MySQL, con arquitectura por capas, sesiones con cookies firmadas + JWT opaco y store en DB. Incluye monitoreo de actividad/inactividad en tiempo real (WebSocket + SSE), gestion de pedidos/productos para revision y empaquetado, y control operativo en portal cerrado con validaciones, asignaciones y trazabilidad.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Socket.IO</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">JWT</span>
+                            <span class="tag">SSE</span>
+                            <span class="tag">Arquitectura por capas</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="./assets/imagenes/Automatizador.png" alt="Automatizador MELI y Google APIs" class="project-image-automatizador">
+                    </div>
+                    <div class="project-content">
+                        <h3>Automatizador de Precios y Stock</h3>
+                        <p>
+                            Automatizador end-to-end con webhook thin, cola de jobs con dedupe/catch-up y
+                            runner en background para sync modular de planilla a DB. Integra Google APIs y
+                            la API de Mercado Libre para precio, stock y estado_publicacion, con outbox pattern
+                            (latest-wins), retry/backoff, rate limit por cuenta y auditoria completa en MySQL
+                            mediante sync_runs, sync_changes y logs estructurados por etapa.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Mercado Libre API</span>
+                            <span class="tag">Google APIs</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Webhooks</span>
+                            <span class="tag">Jobs Queue</span>
+                            <span class="tag">Outbox Pattern</span>
+                            <span class="tag">Auditoria</span>
+                        </div>
+                    </div>
+                </article>
                 <article class="project-card">
                     <div class="project-image">
                         <img src="./assets/imagenes/to-do.png" alt="Tareas To-Do">
@@ -312,7 +355,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Franco Pipito. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Franco Pipito. Todos los derechos reservados.</p>
                 <div class="footer-links">
                     <!-- Updated footer icons to use SVG files -->
                     <a href="mailto:franpipito7@gmail.com" aria-label="Email">
@@ -322,7 +365,7 @@
                         <img src="./assets/imagenes/GitHub.svg" alt="GitHub" class="footer-icon-svg">
                     </a>
                     <a href="https://linkedin.com/in/francopipito" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <img src="/public/assets/imagenes/Linkedin.svg" alt="LinkedIn" class="footer-icon-svg">
+                        <img src="./assets/imagenes/Linkedin.svg" alt="LinkedIn" class="contact-icon-svg">
                     </a>
                 </div>
             </div>
@@ -332,3 +375,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
