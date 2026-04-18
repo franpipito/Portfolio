@@ -86,6 +86,7 @@ const contactForm = document.getElementById("contactForm")
 const nameInput = document.getElementById("name")
 const emailInput = document.getElementById("email")
 const messageInput = document.getElementById("message")
+const subjectInput = document.getElementById("emailSubject")
 const formSuccess = document.getElementById("formSuccess")
 const formError = document.getElementById("formError")
 const submitButton = contactForm.querySelector('button[type="submit"]')
@@ -180,9 +181,14 @@ contactForm.addEventListener("submit", async (e) => {
   if (isValid) {
     submitButton.disabled = true
     submitButton.textContent = "Enviando..."
+    const senderName = nameInput.value.trim()
+    subjectInput.value = senderName
+      ? `Nuevo contacto desde portfolio: ${senderName}`
+      : "Nuevo contacto desde portfolio"
 
     const payload = {
       "form-name": contactForm.getAttribute("name"),
+      subject: subjectInput.value,
       name: nameInput.value.trim(),
       email: emailInput.value.trim(),
       message: messageInput.value.trim(),
