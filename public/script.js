@@ -87,6 +87,9 @@ const nameInput = document.getElementById("name")
 const emailInput = document.getElementById("email")
 const messageInput = document.getElementById("message")
 const formSuccess = document.getElementById("formSuccess")
+const formError = document.getElementById("formError")
+const submitButton = contactForm.querySelector('button[type="submit"]')
+const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/franpipito7@gmail.com"
 
 // Validation functions
 function validateName(name) {
@@ -140,13 +143,15 @@ messageInput.addEventListener("blur", () => {
 })
 
 // Form submission
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener("submit", async (e) => {
   e.preventDefault()
 
   // Clear previous errors
   clearError("name")
   clearError("email")
   clearError("message")
+  formSuccess.classList.remove("show")
+  formError.classList.remove("show")
 
   let isValid = true
 
@@ -166,25 +171,46 @@ contactForm.addEventListener("submit", (e) => {
     isValid = false
   }
 
-  // If form is valid, show success message
+  // If form is valid, send to email endpoint
   if (isValid) {
-    // In a real application, you would send the data to a server here
-    console.log("Form data:", {
-      name: nameInput.value,
-      email: emailInput.value,
-      message: messageInput.value,
-    })
+    submitButton.disabled = true
+    submitButton.textContent = "Enviando..."
 
-    // Show success message
-    formSuccess.classList.add("show")
+    const formData = new FormData(contactForm)
+    formData.append("_subject", "Nuevo mensaje desde portfolio")
+    formData.append("_captcha", "false")
+    formData.append("_template", "table")
 
-    // Reset form
-    contactForm.reset()
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
 
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-      formSuccess.classList.remove("show")
-    }, 5000)
+      if (!response.ok) {
+        throw new Error("Error al enviar formulario")
+      }
+
+      formSuccess.classList.add("show")
+      contactForm.reset()
+
+      setTimeout(() => {
+        formSuccess.classList.remove("show")
+      }, 5000)
+    } catch (error) {
+      console.error("Contact form error:", error)
+      formError.classList.add("show")
+
+      setTimeout(() => {
+        formError.classList.remove("show")
+      }, 6000)
+    } finally {
+      submitButton.disabled = false
+      submitButton.textContent = "Enviar Mensaje"
+    }
   }
 })
 

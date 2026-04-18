@@ -718,6 +718,22 @@ section {
   text-align: center;
 }
 
+.form-error {
+  display: none;
+  padding: var(--spacing-sm);
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  border-radius: var(--radius-sm);
+  color: #ef4444;
+  margin-top: var(--spacing-sm);
+  text-align: center;
+}
+
+.form-error.show {
+  display: block;
+  animation: slideIn 0.3s ease;
+}
+
 .form-success.show {
   display: block;
   animation: slideIn 0.3s ease;
