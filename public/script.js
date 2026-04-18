@@ -89,7 +89,12 @@ const messageInput = document.getElementById("message")
 const formSuccess = document.getElementById("formSuccess")
 const formError = document.getElementById("formError")
 const submitButton = contactForm.querySelector('button[type="submit"]')
-const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/franpipito7@gmail.com"
+
+function encodeFormData(data) {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join("&")
+}
 
 // Validation functions
 function validateName(name) {
@@ -171,23 +176,26 @@ contactForm.addEventListener("submit", async (e) => {
     isValid = false
   }
 
-  // If form is valid, send to email endpoint
+  // If form is valid, send to Netlify Forms
   if (isValid) {
     submitButton.disabled = true
     submitButton.textContent = "Enviando..."
 
-    const formData = new FormData(contactForm)
-    formData.append("_subject", "Nuevo mensaje desde portfolio")
-    formData.append("_captcha", "false")
-    formData.append("_template", "table")
+    const payload = {
+      "form-name": contactForm.getAttribute("name"),
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      message: messageInput.value.trim(),
+      "bot-field": "",
+    }
 
     try {
-      const response = await fetch(CONTACT_ENDPOINT, {
+      const response = await fetch("/", {
         method: "POST",
-        body: formData,
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
+        body: encodeFormData(payload),
       })
 
       if (!response.ok) {

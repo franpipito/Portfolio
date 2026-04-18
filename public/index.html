@@ -327,7 +327,11 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p hidden>
+                        <label>No completar este campo: <input name="bot-field"></label>
+                    </p>
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input 
