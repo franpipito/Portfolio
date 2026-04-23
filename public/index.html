@@ -20,8 +20,10 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#educacion">Educación</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -39,8 +41,9 @@
                 <div class="hero-text">
                     <h1>Franco Pipito</h1>
                     <h2 class="typing-text" id="typingText"></h2>
+                    <span class="hero-badge">1 año de experiencia profesional</span>
                     <p class="hero-description">
-                        Construyo y mantengo aplicaciones web en producción con Node.js/Express y MySQL, integrando la API de Mercado Libre y automatizaciones con Google Drive (webhooks) + Google Sheets. Desarrollo sistemas end-to-end: sincronización, jobs en background, deduplicación, auditoría y operación en tiempo real.
+                        Full Stack Developer con 1 año de experiencia construyendo y manteniendo aplicaciones web en producción con Node.js/Express, Java y MySQL. Integro la API de Mercado Libre y automatizaciones con Google Drive (webhooks) + Google Sheets, y desarrollo sistemas end-to-end: sincronización, jobs en background, deduplicación, auditoría y operación en tiempo real.
                     </p>
                     <div class="hero-buttons">
                         <a href="#contacto" class="btn btn-primary">Contactar</a>
@@ -53,6 +56,24 @@
         </div>
         <div class="scroll-indicator">
             <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre-mi">
+        <div class="container">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-content">
+                <p>
+                    Soy estudiante avanzado en <strong>UADE</strong>, donde tuve mi primer contacto con la programación a través de <strong>Java</strong>. Ese lenguaje fue mi puerta de entrada al paradigma orientado a objetos y a las <strong>buenas prácticas de ingeniería de software</strong>: principios SOLID, clean code, separación por capas, testing y code reviews.
+                </p>
+                <p>
+                    Hoy, con 1 año de experiencia profesional, aplico esos fundamentos en el desarrollo diario: diseño APIs robustas y escalables, escribo código mantenible y modular, participo en <strong>refactors y code reviews</strong>, y trabajo con bases de datos relacionales y patrones de resiliencia (outbox, retry/backoff, rate limit) en sistemas productivos.
+                </p>
+                <p>
+                    Me apasiona tomar decisiones basadas en datos a partir de métricas, logs estructurados y dashboards, y seguir creciendo hacia el diseño de <strong>arquitecturas distribuidas</strong> con foco en confiabilidad, performance y observabilidad.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -113,17 +134,27 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Actualidad</span>
+                        <span class="timeline-date">Actualidad · 1 año</span>
                         <h3>Fullstack Developer</h3>
                         <h4>TodoMicro</h4>
                         <p>
-                            Desarrollo y mantengo aplicaciones internas end-to-end en produccion. Implemento APIs y lógica de negocio con Node.js/Express, integraciones con la API de Mercado Libre y Google APIs, y trabajo con MySQL para trazabilidad y consistencia de datos. Implementé mejoras y automatizaciones para sincronizar precios, stock y estado de publicaciones, y colaboro en corrección de bugs, mantenimiento evolutivo y estabilidad operativa.
+                            Desarrollo y mantengo aplicaciones internas end-to-end en producción, con foco en código de alta calidad y buenas prácticas.
                         </p>
+                        <ul class="timeline-list">
+                            <li>Desarrollo código de alta calidad y participo en <strong>refactors y code reviews</strong> sobre una arquitectura por capas (routes, controllers, services, repositories).</li>
+                            <li>Diseño y mantengo <strong>APIs robustas y escalables</strong> con Node.js/Express, integradas a la API de Mercado Libre y Google APIs, alineadas a los objetivos operativos del negocio.</li>
+                            <li>Trabajo con <strong>bases de datos relacionales (MySQL)</strong> aplicando patrones de resiliencia como outbox (latest-wins), retry/backoff y rate limit por cuenta.</li>
+                            <li>Contribuyo a estrategias de <strong>testing y observabilidad</strong>: pruebas de endpoints, logs estructurados por etapa y auditoría completa de sincronizaciones.</li>
+                            <li>Tomo decisiones basadas en datos operativos, dashboards internos y el feedback del equipo para priorizar mejoras y correcciones.</li>
+                        </ul>
                         <div class="tags">
                             <span class="tag">Node.js</span>
                             <span class="tag">Express.js</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">APIs REST</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">Code Reviews</span>
+                            <span class="tag">Observabilidad</span>
                         </div>
                     </div>
                 </div>
@@ -143,6 +174,40 @@
                             <span class="tag">Liderazgo</span>
                             <span class="tag">Trabajo en Equipo</span>
                             <span class="tag">Gestión</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="educacion">
+        <div class="container">
+            <h2 class="section-title">Educación</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">En curso</span>
+                        <h3>Ingeniería en Informática</h3>
+                        <h4>UADE · Universidad Argentina de la Empresa</h4>
+                        <p>
+                            Formación sólida en fundamentos de ingeniería de software con <strong>Java</strong> como lenguaje principal: programación orientada a objetos, estructuras de datos, algoritmos y buenas prácticas de codificación.
+                        </p>
+                        <ul class="timeline-list">
+                            <li>Aplicación de <strong>buenas prácticas</strong>: principios SOLID, clean code, separación en capas y patrones de diseño.</li>
+                            <li>Diseño e implementación de <strong>APIs</strong> y modelado de bases de datos relacionales y no relacionales.</li>
+                            <li>Introducción a <strong>arquitecturas distribuidas y microservicios</strong>, con foco en modularidad y escalabilidad.</li>
+                            <li>Prácticas de <strong>testing automatizado</strong> y code reviews para asegurar calidad y confiabilidad del software.</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">POO</span>
+                            <span class="tag">SOLID</span>
+                            <span class="tag">Buenas Prácticas</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">Arquitectura de Software</span>
                         </div>
                     </div>
                 </div>
