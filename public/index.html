@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -20,8 +20,10 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mi</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#educacion">Educacion</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -39,8 +41,9 @@
                 <div class="hero-text">
                     <h1>Franco Pipito</h1>
                     <h2 class="typing-text" id="typingText"></h2>
+                    <span class="hero-badge">1 año de experiencia profesional</span>
                     <p class="hero-description">
-                        Construyo y mantengo aplicaciones web en producción con Node.js/Express y MySQL, integrando la API de Mercado Libre y automatizaciones con Google Drive (webhooks) + Google Sheets. Desarrollo sistemas end-to-end: sincronización, jobs en background, deduplicación, auditoría y operación en tiempo real.
+                        Full Stack Developer con 1 año de experiencia construyendo y manteniendo aplicaciones internas end-to-end en produccion. Diseno y mantengo APIs RESTful robustas y escalables con Node.js/Express integradas a Mercado Libre API y Google APIs, trabajo con MySQL aplicando patrones de resiliencia (outbox, retry/backoff, rate limit), contribuyo a testing, observabilidad y code reviews sobre una arquitectura por capas.
                     </p>
                     <div class="hero-buttons">
                         <a href="#contacto" class="btn btn-primary">Contactar</a>
@@ -56,10 +59,28 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about" id="sobre-mi">
+        <div class="container">
+            <h2 class="section-title">Sobre mi</h2>
+            <div class="about-content">
+                <p>
+                    Soy estudiante avanzado en <strong>UADE</strong>, donde tuve mi primer contacto con la programacion a traves de <strong>Java</strong>. Ese lenguaje fue mi puerta de entrada al paradigma orientado a objetos y a las <strong>buenas practicas de ingenieria de software</strong>: principios SOLID, clean code, separacion por capas, testing y code reviews.
+                </p>
+                <p>
+                    Hoy, con 1 año de experiencia profesional, aplico esos fundamentos en el desarrollo diario: diseno APIs robustas y escalables, escribo codigo mantenible y modular, participo en <strong>refactors y code reviews</strong>, y trabajo con bases de datos relacionales y patrones de resiliencia (outbox, retry/backoff, rate limit) en sistemas productivos.
+                </p>
+                <p>
+                    Me apasiona tomar decisiones basadas en datos a partir de metricas, logs estructurados y dashboards, y seguir creciendo hacia el diseno de <strong>arquitecturas distribuidas</strong> con foco en confiabilidad, performance y observabilidad.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section class="skills" id="habilidades">
         <div class="container">
-            <h2 class="section-title">Habilidades Técnicas</h2>
+            <h2 class="section-title">Habilidades Tecnicas</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <i class="devicon-nodejs-plain colored"></i>
@@ -77,9 +98,34 @@
                     <p>Programación moderna</p>
                 </div>
                 <div class="skill-card">
-                    <i class="devicon-html5-plain colored"></i><i class="devicon-css3-plain colored"></i>
-                    <h3>HTML & CSS</h3>
-                    <p>Interfaces responsivas</p>
+                    <i class="devicon-mysql-plain colored"></i>
+                    <h3>MySQL</h3>
+                    <p>Gestión de bases de datos</p>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-java-plain colored"></i>
+                    <h3>Java</h3>
+                    <p>Paradigma Orientado a Objetos</p>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-html5-plain colored"></i>
+                    <h3>HTML</h3>
+                    <p>Estructura web semántica</p>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-css3-plain colored"></i>
+                    <h3>CSS</h3>
+                    <p>Estilos y diseño responsive</p>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-react-plain colored"></i>
+                    <h3>React</h3>
+                    <p>Interfaces modernas</p>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-git-plain colored"></i>
+                    <h3>Git</h3>
+                    <p>Control de versiones</p>
                 </div>
                 <div class="skill-card">
                     <i class="devicon-python-plain colored"></i>
@@ -91,18 +137,7 @@
                     <h3>C# .NET</h3>
                     <p>Desarrollo empresarial</p>
                 </div>
-                <div class="skill-card">
-                    <i class="devicon-mysql-plain colored"></i>
-                    <h3>SQL & MySQL</h3>
-                    <p>Gestión de bases de datos</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-java-plain colored"></i>
-                    <h3>Java</h3>
-                    <p>Paradigma Orientado a Objetos</p>
-                </div>
-            </div>
-        </div>
+            </div>        </div>
     </section>
 
     <!-- Experience Section -->
@@ -113,17 +148,27 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Actualidad</span>
+                        <span class="timeline-date">Actualidad · 1 año</span>
                         <h3>Fullstack Developer</h3>
                         <h4>TodoMicro</h4>
                         <p>
-                            Desarrollo y mantengo aplicaciones internas end-to-end en produccion. Implemento APIs y lógica de negocio con Node.js/Express, integraciones con la API de Mercado Libre y Google APIs, y trabajo con MySQL para trazabilidad y consistencia de datos. Implementé mejoras y automatizaciones para sincronizar precios, stock y estado de publicaciones, y colaboro en corrección de bugs, mantenimiento evolutivo y estabilidad operativa.
+                            Desarrollo y mantengo aplicaciones internas end-to-end en produccion, con foco en codigo de alta calidad y buenas practicas.
                         </p>
+                        <ul class="timeline-list">
+                            <li>Desarrollo codigo de alta calidad y participo en <strong>refactors y code reviews</strong> sobre una arquitectura por capas (routes, controllers, services, repositories).</li>
+                            <li>Diseno y mantengo <strong>APIs robustas y escalables</strong> con Node.js/Express, integradas a la API de Mercado Libre y Google APIs, alineadas a los objetivos operativos del negocio.</li>
+                            <li>Trabajo con <strong>bases de datos relacionales (MySQL)</strong> aplicando patrones de resiliencia como outbox (latest-wins), retry/backoff y rate limit por cuenta.</li>
+                            <li>Contribuyo a estrategias de <strong>testing y observabilidad</strong>: pruebas de endpoints, logs estructurados por etapa y auditoria completa de sincronizaciones.</li>
+                            <li>Tomo decisiones basadas en datos operativos, dashboards internos y el feedback del equipo para priorizar mejoras y correcciones.</li>
+                        </ul>
                         <div class="tags">
                             <span class="tag">Node.js</span>
                             <span class="tag">Express.js</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">APIs REST</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">Code Reviews</span>
+                            <span class="tag">Observabilidad</span>
                         </div>
                     </div>
                 </div>
@@ -132,17 +177,51 @@
                     <div class="timeline-content">
                         <span class="timeline-date">Experiencia Previa</span>
                         <h3>Gerente</h3>
-                        <h4>Pizzería La Nona</h4>
+                        <h4>Pizzeria La Nona</h4>
                         <p>
-                            Gestión y coordinación de equipos de trabajo, desarrollo de habilidades de 
-                            liderazgo y comunicación efectiva. Optimización de procesos operativos y 
-                            atención al cliente. Esta experiencia fortaleció mis habilidades blandas 
-                            como trabajo en equipo, resolución de problemas y toma de decisiones bajo presión.
+                            Gestion y coordinacion de equipos de trabajo, desarrollo de habilidades de 
+                            liderazgo y comunicacion efectiva. Optimizacion de procesos operativos y 
+                            atencion al cliente. Esta experiencia fortalecio mis habilidades blandas 
+                            como trabajo en equipo, resolucion de problemas y toma de decisiones bajo presion.
                         </p>
                         <div class="tags">
                             <span class="tag">Liderazgo</span>
                             <span class="tag">Trabajo en Equipo</span>
-                            <span class="tag">Gestión</span>
+                            <span class="tag">Gestion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="educacion">
+        <div class="container">
+            <h2 class="section-title">Educacion</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">En curso</span>
+                        <h3>Ingenieria en Informatica</h3>
+                        <h4>UADE · Universidad Argentina de la Empresa</h4>
+                        <p>
+                            Formacion solida en fundamentos de ingenieria de software con <strong>Java</strong> como lenguaje principal: programacion orientada a objetos, estructuras de datos, algoritmos y buenas practicas de codificacion.
+                        </p>
+                        <ul class="timeline-list">
+                            <li>Introducción a principios SOLID, clean code y patrones de diseño orientados a objetos.</li>
+                            <li>Modelado de bases de datos relacionales y fundamentos de bases de datos no relacionales.</li>
+                            <li>Primeros conceptos de arquitecturas distribuidas y microservicios en cursada.</li>
+                            <li>Introducción a testing y code reviews como parte de la formación en ingeniería.</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">POO</span>
+                            <span class="tag">SOLID</span>
+                            <span class="tag">Buenas Practicas</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">Arquitectura de Software</span>
                         </div>
                     </div>
                 </div>
@@ -162,7 +241,7 @@
                     <div class="project-content">
                         <h3>Panel de alertas</h3>
                         <p>
-                            Aplicación interna de alertas del Automatizador de Precios/Stock desarrollada con Node.js, Express y MySQL, con arquitectura por capas (routes, controllers, services y repositories). Incluye interfaz web modular en HTML, CSS y JavaScript nativo, carga de archivos con Multer, reglas y validaciones de alertas, y envío de notificaciones por GMAIL vía SMTP con Nodemailer, integrada al outbox de MELI en un entorno interno cerrado.
+                            Aplicacion interna de alertas del Automatizador de Precios/Stock desarrollada con Node.js, Express y MySQL, con arquitectura por capas (routes, controllers, services y repositories). Incluye interfaz web modular en HTML, CSS y JavaScript nativo, carga de archivos con Multer, reglas y validaciones de alertas, y envio de notificaciones por GMAIL via SMTP con Nodemailer, integrada al outbox de MELI en un entorno interno cerrado.
                         </p>
                         <div class="tags">
                             <span class="tag">Node.js</span>
@@ -172,7 +251,7 @@
                             <span class="tag">Multer</span>
                             <span class="tag">Nodemailer</span>
                             <span class="tag">SMTP / correo saliente</span>
-                            <span class="tag">Integración con outbox de MELI</span>
+                            <span class="tag">Integracion con outbox de MELI</span>
                             <span class="tag">Arquitectura por capas: routes, controllers, services y repositories</span>
                         </div>
                     </div>
@@ -180,7 +259,7 @@
 
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="./assets/imagenes/loginTM.webp" alt="Panorama ServidorMain - Login">
+                        <img src="./assets/imagenes/loginTM.webp" alt="Pañorama ServidorMain - Login">
                     </div>
                     <div class="project-content">
                         <h3>Aplicacion logistica</h3>
@@ -231,8 +310,7 @@
                     <div class="project-content">
                         <h3>Tareas To-Do</h3>
                         <p>
-                            Aplicación web para gestión de tareas con funcionalidades de crear, editar, 
-                            eliminar y marcar como completadas. Interfaz intuitiva y almacenamiento local.
+                            Aplicación web para gestión de tareas construida con Node.js y Express. Persistencia en JSON como decisión técnica deliberada para priorizar simplicidad y foco en la lógica sin dependencias externas. Incluye validaciones de datos y manejo de estados: lista vacía, errores de lectura y datos inválidos.
                         </p>
                         <div class="tags">
                             <span class="tag">Node.js</span>
@@ -255,13 +333,12 @@
 
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="./assets/imagenes/guia-eventos-virtuales.webp" alt="Sistema de Gestión de Eventos">
+                        <img src="./assets/imagenes/guia-eventos-virtuales.webp" alt="Sistema de Gestion de Eventos">
                     </div>
                     <div class="project-content">
-                        <h3>Sistema de Gestión de Eventos</h3>
+                        <h3>Sistema de Gestion de Eventos</h3>
                         <p>
-                            Plataforma completa para administrar eventos con registro de asistentes, 
-                            gestión de horarios y notificaciones. Backend robusto con base de datos relacional.
+                            Aplicación de escritorio en C#/.NET con lógica de negocio para gestión de eventos, clientes y costos. Implementación de reglas de negocio, validaciones para evitar inconsistencias y separación de responsabilidades.
                         </p>
                         <div class="tags">
                             <span class="tag">C#</span>
@@ -282,8 +359,7 @@
                     <div class="project-content">
                         <h3>Agencia de Turismo</h3>
                         <p>
-                            Sitio web para agencia de viajes con catálogo de destinos, sistema de reservas 
-                            y panel administrativo. Diseño responsive y optimizado para conversión.
+                            Sistema de gestión para agencia de viajes desarrollado en C#/.NET. Incluye ABM de destinos, reservas y panel administrativo con validaciones y manejo de datos relacionales.
                         </p>
                         <div class="tags">
                             <span class="tag">C#</span>
@@ -309,7 +385,7 @@
                     <h3>Hablemos</h3>
                     <p>
                         Estoy disponible para nuevos proyectos y oportunidades. 
-                        No dudes en contactarme a través del formulario o por los siguientes medios:
+                        No dudes en contactarme a traves del formulario o por los siguientes medios:
                     </p>
                     <div class="contact-details">
                         <!-- Updated contact icons to use SVG files -->
@@ -365,16 +441,16 @@
                             rows="5" 
                             required 
                             aria-required="true"
-                            placeholder="Escribe tu mensaje aquí..."
+                            placeholder="Escribe tu mensaje aqui..."
                         ></textarea>
                         <span class="error-message" id="messageError"></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
                     <div class="form-error" id="formError">
-                        No se pudo enviar el mensaje. Intentá nuevamente en unos segundos.
+                        No se pudo enviar el mensaje. Intenta nuevamente en unos segundos.
                     </div>
                     <div class="form-success" id="formSuccess">
-                        ¡Mensaje enviado con éxito! Te responderé pronto.
+                        ¡Mensaje enviado con exito! Te respondere pronto.
                     </div>
                 </form>
             </div>
@@ -405,5 +481,9 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
 
 
