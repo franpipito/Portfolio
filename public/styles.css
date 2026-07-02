@@ -607,24 +607,36 @@ body {
   object-fit: contain;
 }
 
-/* Card MatchPoint sin screenshot: mini-branding CSS */
-.project-image-mp {
+/* Tile de marca para proyectos sin screenshot propia: mismo lenguaje visual del logo FP */
+.project-tile {
+  aspect-ratio: auto; min-height: 220px;
+  padding: 2rem 1.4rem;
   display: grid; place-items: center;
   background:
-    radial-gradient(ellipse 70% 90% at 50% 110%, rgba(34, 197, 94, 0.22), transparent 70%),
+    radial-gradient(ellipse 70% 90% at 50% 110%, var(--accent-glow), transparent 70%),
     linear-gradient(180deg, #0a130d, #071009);
 }
 
-.mp-mini { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+.project-tile-inner { display: flex; flex-direction: column; align-items: center; gap: 0.65rem; }
 
-.mp-mini-logo {
+.project-tile-mark {
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border-radius: 14px; background: #060a07;
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  box-shadow: 0 0 22px var(--accent-glow);
+}
+
+.project-tile-mark svg { width: 78%; height: 78%; }
+
+.project-tile-logo {
   font-size: 1.5rem; font-weight: 700; color: var(--text);
   text-shadow: 0 0 30px rgba(74, 222, 128, 0.35);
 }
 
-.mp-mini-tag { font-size: 0.72rem; color: var(--text-dim); }
+.project-tile-tag { font-size: 0.72rem; color: var(--text-dim); text-align: center; max-width: 230px; }
 
-.mp-mini-badge {
+.project-tile-badge {
   font-size: 0.64rem; color: var(--accent);
   border: 1px solid var(--accent-dark); border-radius: 999px;
   padding: 0.3rem 0.8rem;
