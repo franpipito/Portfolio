@@ -22,7 +22,13 @@
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
             <a href="#inicio" class="logo">
-                <span class="logo-mark">FP</span>
+                <span class="logo-mark">
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M50 16 A22 22 0 1 1 45 11.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M14 48 A22 22 0 1 1 19 52.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <text x="32" y="41" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="25" text-anchor="middle" fill="currentColor">FP</text>
+                    </svg>
+                </span>
                 <span class="logo-text">Franco <span class="accent">Pipito</span></span>
             </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -280,8 +286,8 @@
                         <span class="project-type mono">producción · interna</span>
                         <span class="project-index mono">/01</span>
                     </div>
-                    <div class="project-image">
-                        <img src="./assets/imagenes/Automatizador.webp" alt="Automatizador de Precios y Stock" loading="lazy" decoding="async">
+                    <div class="project-image project-image-contain">
+                        <img src="./assets/imagenes/Automatizador.webp" alt="Diagrama del Automatizador de Precios y Stock: webhook de Google Drive, cola de jobs, núcleo de sincronización, SQL DB, patrón outbox y worker de Mercado Libre" loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
                         <h3>Automatizador de Precios &amp; Stock</h3>
@@ -361,21 +367,25 @@
                         <span class="project-type mono">producción · interna</span>
                         <span class="project-index mono">/04</span>
                     </div>
-                    <div class="project-image project-image-placeholder">
-                        <div class="placeholder-content mono">
-                            <span class="placeholder-icon">⧉</span>
-                            <span>Imagen próximamente</span>
-                        </div>
+                    <div class="project-image">
+                        <img src="./assets/imagenes/consultas-meli.webp" alt="Podio de conversiones de Preguntas MELI. Los nombres de los usuarios fueron tapados por privacidad." loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
                         <h3>Preguntas MELI</h3>
                         <p>
-                            Automatización de respuestas a preguntas de compradores en Mercado Libre.
-                            Todavía en desarrollo — pronto sumo el detalle completo.
+                            Bandeja interna que centraliza las preguntas de varias cuentas de Mercado
+                            Libre: sincronización con la API, reserva de cada pregunta para que dos
+                            personas no respondan lo mismo, reintentos si falla el envío y borrado
+                            auditado. Suma un módulo de atribución de ventas que mide cuánto convierten
+                            esas respuestas, con ventana de 72&nbsp;hs y reparto entre quienes respondieron.
                         </p>
                         <div class="tags">
+                            <span class="tag">Node.js</span>
                             <span class="tag">Mercado Libre API</span>
-                            <span class="tag">Próximamente</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">WebSocket</span>
+                            <span class="tag">Redis Pub/Sub</span>
+                            <span class="tag">Locking / Concurrencia</span>
                         </div>
                     </div>
                 </article>
@@ -519,7 +529,13 @@
                 <div class="contact-info reveal">
                     <div class="contact-card mono">
                         <div class="contact-card-head">
-                            <span class="contact-logo mono">FP</span>
+                            <span class="contact-logo">
+                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M50 16 A22 22 0 1 1 45 11.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                                    <path d="M14 48 A22 22 0 1 1 19 52.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                                    <text x="32" y="41" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="25" text-anchor="middle" fill="currentColor">FP</text>
+                                </svg>
+                            </span>
                             <span>contact --franco</span>
                         </div>
                         <a class="contact-line" href="mailto:franpipito7@gmail.com"><span class="contact-key">email</span> franpipito7@gmail.com</a>
