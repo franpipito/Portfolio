@@ -3,385 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Franco Pipito - Full Stack Developer">
+    <meta name="description" content="Franco Pipito — Full Stack Developer. Node.js, Express, MySQL, React Native. Creador de MatchPoint, app de pádel en revisión en el App Store.">
+    <meta property="og:title" content="Franco Pipito | Full Stack Developer">
+    <meta property="og:description" content="Full Stack Developer con ownership end-to-end. Creador de MatchPoint, app móvil en revisión en el App Store.">
+    <meta property="og:type" content="website">
     <title>Franco Pipito | Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============ NAV ============ -->
     <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="logo">Franco Pipito</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="nav-inner">
+            <a href="#inicio" class="logo">
+                <span class="logo-mark">FP</span>
+                <span class="logo-text">Franco <span class="accent">Pipito</span></span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre mi</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#educacion">Educacion</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#sobre-mi"><span class="nav-num">01</span> Sobre mí</a></li>
+                <li><a href="#matchpoint"><span class="nav-num">02</span> MatchPoint</a></li>
+                <li><a href="#proyectos"><span class="nav-num">03</span> Proyectos</a></li>
+                <li><a href="#experiencia"><span class="nav-num">04</span> Trayectoria</a></li>
+                <li><a href="#contacto"><span class="nav-num">05</span> Contacto</a></li>
+                <li class="nav-cta"><a href="./assets/imagenes/FRANCO PIPITO - CV 2026 (4).pdf" download class="btn btn-ghost btn-sm">Descargar CV ↓</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-image">
-                    <!-- Fixed image path to work from root -->
-                    <img src="./assets/imagenes/1759170861991.jpg" alt="Franco Pipito">
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="inicio">
+        <div class="hero-grid-bg" aria-hidden="true"></div>
+        <div class="container hero-layout">
+            <div class="hero-copy">
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    <span class="mono">disponible para nuevos desafíos</span>
                 </div>
-                <div class="hero-text">
-                    <h1>Franco Pipito</h1>
-                    <h2 class="typing-text" id="typingText"></h2>
-                    <span class="hero-badge">1 año de experiencia profesional</span>
-                    <p class="hero-description">
-                        Full Stack Developer con 1 año de experiencia construyendo y manteniendo aplicaciones internas end-to-end en produccion. Diseno y mantengo APIs RESTful robustas y escalables con Node.js/Express integradas a Mercado Libre API y Google APIs, trabajo con MySQL aplicando patrones de resiliencia (outbox, retry/backoff, rate limit), contribuyo a testing, observabilidad y code reviews sobre una arquitectura por capas.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#contacto" class="btn btn-primary">Contactar</a>
-                        <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
-                        <!-- Added CV download button -->
-                        <a href="./assets/imagenes/FRANCO PIPITO - CV 2026 (4).pdf" class="btn btn-secondary" download>Descargar CV</a>
-                    </div>
+                <h1 class="hero-title">
+                    Construyo productos<br>
+                    <span class="hero-title-accent">end-to-end</span>.
+                </h1>
+                <p class="hero-sub">
+                    Soy <strong>Franco Pipito</strong>, Full Stack Developer. De día mantengo
+                    sistemas en producción integrados con Mercado Libre y Google APIs;
+                    de noche desarrollo <strong>MatchPoint</strong>, mi propia app de pádel,
+                    hoy en revisión en el App&nbsp;Store.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#matchpoint" class="btn btn-primary">Conocé MatchPoint <span class="btn-arrow">→</span></a>
+                    <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+                </div>
+                <div class="hero-meta mono">
+                    <span>Buenos Aires, AR</span>
+                    <span class="meta-sep">/</span>
+                    <span>Ing. Informática · UADE</span>
+                    <span class="meta-sep">/</span>
+                    <span>EN · B1</span>
+                </div>
+            </div>
+
+            <div class="hero-terminal" aria-hidden="true">
+                <div class="terminal-bar">
+                    <span class="t-dot t-red"></span>
+                    <span class="t-dot t-yellow"></span>
+                    <span class="t-dot t-green"></span>
+                    <span class="terminal-title mono">franco@dev — zsh</span>
+                </div>
+                <div class="terminal-body mono" id="terminalBody">
+                    <div class="t-line"><span class="t-prompt">$</span> whoami</div>
+                    <div class="t-line t-out">franco_pipito · full stack developer</div>
+                    <div class="t-line"><span class="t-prompt">$</span> cat stack.txt</div>
+                    <div class="t-line t-out">node · express · mysql · react-native · supabase · typescript</div>
+                    <div class="t-line"><span class="t-prompt">$</span> git log --oneline -3</div>
+                    <div class="t-line t-out"><span class="t-hash">a3f91c</span> feat: matchpoint enviada a revisión de App Store 🚀</div>
+                    <div class="t-line t-out"><span class="t-hash">7b20de</span> feat: sync automático precios/stock con MELI API</div>
+                    <div class="t-line t-out"><span class="t-hash">c114f8</span> refactor: arquitectura por capas + outbox pattern</div>
+                    <div class="t-line"><span class="t-prompt">$</span> <span class="t-typed" id="terminalTyped"></span><span class="t-caret"></span></div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
+        <a href="#sobre-mi" class="scroll-hint mono" aria-label="Bajar a la siguiente sección">scroll ↓</a>
+    </header>
 
- <!-- About Section -->
-<section class="about" id="sobre-mi">
-    <div class="container">
-        <h2 class="section-title">Sobre mí</h2>
-        <div class="about-content">
-            <p>
-                Empecé en la programación en 2022 con un curso de HTML, CSS y JavaScript en la <strong>UTN</strong>. Desde ahí no paré: soy estudiante avanzado de Ingeniería Informática en <strong>UADE</strong>, hice cursos de Node.js y Express, y fui sumando <strong>C#/.NET, Python, MySQL y Java</strong> a través de la facultad.
-            </p>
-            <p>
-                Hoy, con 1 año de experiencia profesional en <strong>TodoMicro</strong>, 
-                aplico esos fundamentos en el desarrollo diario: diseño 
-                <strong>APIs RESTful robustas y escalables</strong>, escribo código 
-                mantenible y modular siguiendo principios <strong>SOLID y clean code</strong>, 
-                participo en <strong>refactors y code reviews</strong>, trabajo con bases de 
-                datos relacionales aplicando patrones de resiliencia como 
-                <strong>outbox, retry/backoff y rate limit</strong> en sistemas productivos, 
-                e integro <strong>herramientas de IA</strong> en mi flujo de desarrollo para 
-                acelerar entregas sin resignar calidad ni criterio técnico.
-            </p>
-            <p>
-                Me apasiona tomar decisiones basadas en datos a partir de métricas, <strong>logs estructurados</strong> y dashboards, y seguir creciendo hacia el diseño de <strong>arquitecturas distribuidas</strong> con foco en confiabilidad, performance y observabilidad.
-            </p>
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Node.js</span><span class="m-dot">●</span>
+            <span>Express</span><span class="m-dot">●</span>
+            <span>MySQL</span><span class="m-dot">●</span>
+            <span>React Native</span><span class="m-dot">●</span>
+            <span>TypeScript</span><span class="m-dot">●</span>
+            <span>Supabase</span><span class="m-dot">●</span>
+            <span>PostgreSQL</span><span class="m-dot">●</span>
+            <span>JavaScript</span><span class="m-dot">●</span>
+            <span>C# / .NET</span><span class="m-dot">●</span>
+            <span>Python</span><span class="m-dot">●</span>
+            <span>Java</span><span class="m-dot">●</span>
+            <span>Git</span><span class="m-dot">●</span>
+            <!-- duplicado para loop infinito -->
+            <span>Node.js</span><span class="m-dot">●</span>
+            <span>Express</span><span class="m-dot">●</span>
+            <span>MySQL</span><span class="m-dot">●</span>
+            <span>React Native</span><span class="m-dot">●</span>
+            <span>TypeScript</span><span class="m-dot">●</span>
+            <span>Supabase</span><span class="m-dot">●</span>
+            <span>PostgreSQL</span><span class="m-dot">●</span>
+            <span>JavaScript</span><span class="m-dot">●</span>
+            <span>C# / .NET</span><span class="m-dot">●</span>
+            <span>Python</span><span class="m-dot">●</span>
+            <span>Java</span><span class="m-dot">●</span>
+            <span>Git</span><span class="m-dot">●</span>
         </div>
     </div>
-</section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="habilidades">
+    <!-- ============ SOBRE MÍ (BENTO) ============ -->
+    <section class="about section" id="sobre-mi">
         <div class="container">
-            <h2 class="section-title">Habilidades Tecnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="devicon-nodejs-plain colored"></i>
-                    <h3>Node.js</h3>
-                    <p>Desarrollo backend robusto</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-express-original colored"></i>
-                    <h3>Express.js</h3>
-                    <p>APIs RESTful eficientes</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-javascript-plain colored"></i>
-                    <h3>JavaScript</h3>
-                    <p>Programación moderna</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-mysql-plain colored"></i>
-                    <h3>MySQL</h3>
-                    <p>Gestión de bases de datos</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-java-plain colored"></i>
-                    <h3>Java</h3>
-                    <p>Paradigma Orientado a Objetos</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-html5-plain colored"></i>
-                    <h3>HTML</h3>
-                    <p>Estructura web semántica</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-css3-plain colored"></i>
-                    <h3>CSS</h3>
-                    <p>Estilos y diseño responsive</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-react-plain colored"></i>
-                    <h3>React</h3>
-                    <p>Interfaces modernas</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-git-plain colored"></i>
-                    <h3>Git</h3>
-                    <p>Control de versiones</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-python-plain colored"></i>
-                    <h3>Python</h3>
-                    <p>Scripting y automatización</p>
-                </div>
-                <div class="skill-card">
-                    <i class="devicon-dotnetcore-plain colored"></i>
-                    <h3>C# .NET</h3>
-                    <p>Desarrollo empresarial</p>
-                </div>
-                <div class="skill-card">
-                    <img src="./assets/imagenes/openai_dark.svg" style="width:3rem; height:3rem; margin-bottom:1rem;" alt="OpenAI">
-                    <h3>OpenAI Codex</h3>
-                    <p>Desarrollo asistido por IA</p>
-                </div>
-            </div>        </div>
+            <div class="section-head">
+                <span class="section-num mono">01</span>
+                <h2 class="section-title">Sobre mí</h2>
+            </div>
+            <div class="bento">
+                <article class="bento-card bento-main reveal">
+                    <div class="bento-photo">
+                        <img src="./assets/imagenes/1759170861991.jpg" alt="Franco Pipito" loading="lazy" decoding="async">
+                    </div>
+                    <div>
+                        <h3>Cómo llegué acá</h3>
+                        <p>
+                            Empecé a programar en 2022 con un curso de HTML, CSS y JavaScript en la
+                            <strong>UTN</strong>. Desde entonces no paré: hoy soy estudiante avanzado de
+                            Ingeniería Informática y trabajo full time como Full Stack Developer en
+                            <strong>TodoMicro</strong>, mientras desarrollo <strong>MatchPoint</strong> por
+                            mi cuenta en paralelo.
+                        </p>
+                        <p>
+                            Prefiero entender cómo funcionan las cosas antes de escribir la primera línea
+                            de código, y aprendo mejor resolviendo problemas reales que mirando tutoriales.
+                            Más abajo cuento en detalle qué hago en el día a día y cómo armé MatchPoint
+                            de punta a punta.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="bento-card stat-card reveal">
+                    <span class="stat-value mono" data-count="1" data-suffix="+">0</span>
+                    <span class="stat-label">año de experiencia profesional en desarrollo</span>
+                </article>
+
+                <article class="bento-card stat-card reveal">
+                    <span class="stat-value mono" data-count="2022">0</span>
+                    <span class="stat-label">empecé a programar, aprendiendo por mi cuenta</span>
+                </article>
+
+                <article class="bento-card stat-card reveal">
+                    <span class="stat-value mono">UADE</span>
+                    <span class="stat-label">Ingeniería Informática, en curso</span>
+                </article>
+
+                <article class="bento-card skills-card reveal">
+                    <h3 class="mono skills-title">// stack por frente</h3>
+                    <div class="skill-row">
+                        <span class="skill-domain">Backend</span>
+                        <div class="skill-chips">
+                            <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Supabase</span><span class="chip">Edge Functions</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-domain">Mobile</span>
+                        <div class="skill-chips">
+                            <span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">TS strict</span><span class="chip">React Query</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-domain">Datos</span>
+                        <div class="skill-chips">
+                            <span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Outbox</span><span class="chip">Retry/Backoff</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-domain">Lenguajes</span>
+                        <div class="skill-chips">
+                            <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C#</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experiencia">
+    <!-- ============ MATCHPOINT FEATURE ============ -->
+    <section class="matchpoint section" id="matchpoint">
+        <div class="mp-glow" aria-hidden="true"></div>
         <div class="container">
-            <h2 class="section-title">Experiencia Profesional</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Actualidad · 1 año</span>
-                        <h3>Fullstack Developer</h3>
-                        <h4>TodoMicro</h4>
-                        <p>
-                            Desarrollo y mantengo aplicaciones internas end-to-end en produccion, con foco en codigo de alta calidad y buenas practicas.
-                        </p>
-                        <ul class="timeline-list">
-                            <li>Desarrollo codigo de alta calidad y participo en <strong>refactors y code reviews</strong> sobre una arquitectura por capas (routes, controllers, services, repositories).</li>
-                            <li>Diseno y mantengo <strong>APIs robustas y escalables</strong> con Node.js/Express, integradas a la API de Mercado Libre y Google APIs, alineadas a los objetivos operativos del negocio.</li>
-                            <li>Trabajo con <strong>bases de datos relacionales (MySQL)</strong> aplicando patrones de resiliencia como outbox (latest-wins), retry/backoff y rate limit por cuenta.</li>
-                            <li>Contribuyo a estrategias de <strong>testing y observabilidad</strong>: pruebas de endpoints, logs estructurados por etapa y auditoria completa de sincronizaciones.</li>
-                            <li>Tomo decisiones basadas en datos operativos, dashboards internos y el feedback del equipo para priorizar mejoras y correcciones.</li>
-                        </ul>
-                        <div class="tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express.js</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">APIs REST</span>
-                            <span class="tag">Testing</span>
-                            <span class="tag">Code Reviews</span>
-                            <span class="tag">Observabilidad</span>
-                        </div>
+            <div class="section-head">
+                <span class="section-num mono">02</span>
+                <h2 class="section-title">MatchPoint<span class="accent">.</span></h2>
+                <span class="mp-badge mono"><span class="status-dot"></span> En revisión · App Store</span>
+            </div>
+
+            <div class="mp-layout">
+                <div class="mp-copy reveal">
+                    <p class="mp-lead">
+                        Una app para organizar partidos de pádel amateur: buscás rivales
+                        de tu nivel, cargás el resultado y el ranking se actualiza solo.
+                    </p>
+                    <p>
+                        La estamos construyendo con mi socio, en paralelo al trabajo: las pantallas en
+                        React Native, la base de datos y la lógica de negocio en Supabase, y
+                        el proceso de publicación en el App Store — incluido implementar el
+                        borrado completo de cuenta que exige Apple para aprobar la app.
+                    </p>
+                    <ul class="mp-features">
+                        <li>
+                            <span class="mp-feature-num mono">01</span>
+                            <div><strong>Partidos</strong><br>Creás un partido o te sumás a uno existente, filtrando por nivel y zona.</div>
+                        </li>
+                        <li>
+                            <span class="mp-feature-num mono">02</span>
+                            <div><strong>Resultados confirmados entre jugadores</strong><br>Un jugador carga el resultado y el rival lo confirma o lo disputa. Los puntos se aplican recién cuando ambos están de acuerdo.</div>
+                        </li>
+                        <li>
+                            <span class="mp-feature-num mono">03</span>
+                            <div><strong>Ranking y progreso</strong><br>Puntos por partido, niveles y un gráfico de evolución en el home. Si perdés, bajás — como se ve en la captura.</div>
+                        </li>
+                        <li>
+                            <span class="mp-feature-num mono">04</span>
+                            <div><strong>Calificaciones, chat e historial</strong><br>Después de cada partido calificás a los demás jugadores. Cada partido tiene su chat, y el historial guarda todo.</div>
+                        </li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">React Native · Expo 54</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Supabase · Auth + Postgres</span>
+                        <span class="tag">RPC + Edge Functions</span>
+                        <span class="tag">React Query</span>
+                        <span class="tag">React Navigation</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="https://matchpointapp.lovable.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ver landing <span class="btn-arrow">↗</span></a>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Experiencia Previa</span>
-                        <h3>Gerente</h3>
-                        <h4>Pizzeria La Nona</h4>
-                        <p>
-                            Gestion y coordinacion de equipos de trabajo, desarrollo de habilidades de 
-                            liderazgo y comunicacion efectiva. Optimizacion de procesos operativos y 
-                            atencion al cliente. Esta experiencia fortalecio mis habilidades blandas 
-                            como trabajo en equipo, resolucion de problemas y toma de decisiones bajo presion.
-                        </p>
-                        <div class="tags">
-                            <span class="tag">Liderazgo</span>
-                            <span class="tag">Trabajo en Equipo</span>
-                            <span class="tag">Gestion</span>
-                        </div>
+
+                <div class="mp-phone-wrap reveal">
+                    <div class="mp-phone">
+                        <img class="mp-screen-img" src="./assets/imagenes/matchpoint-home.jpeg" alt="Pantalla principal de MatchPoint: perfil, progreso de puntos, buscar partido y últimos partidos" loading="lazy" decoding="async">
                     </div>
+                    <span class="mp-phone-caption mono">↑ captura real de la app</span>
+                    <div class="mp-phone-glow"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="education" id="educacion">
+    <!-- ============ PROYECTOS ============ -->
+    <section class="projects section" id="proyectos">
         <div class="container">
-            <h2 class="section-title">Educacion</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">En curso</span>
-                        <h3>Ingenieria en Informatica</h3>
-                        <h4>UADE · Universidad Argentina de la Empresa</h4>
-                        <p>
-                            Formacion solida en fundamentos de ingenieria de software con <strong>Java</strong> como lenguaje principal: programacion orientada a objetos, estructuras de datos, algoritmos y buenas practicas de codificacion.
-                        </p>
-                        <ul class="timeline-list">
-                            <li>Introducción a principios SOLID, clean code y patrones de diseño orientados a objetos.</li>
-                            <li>Modelado de bases de datos relacionales y fundamentos de bases de datos no relacionales.</li>
-                            <li>Primeros conceptos de arquitecturas distribuidas y microservicios en cursada.</li>
-                            <li>Introducción a testing y code reviews como parte de la formación en ingeniería.</li>
-                        </ul>
-                        <div class="tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">POO</span>
-                            <span class="tag">SOLID</span>
-                            <span class="tag">Buenas Practicas</span>
-                            <span class="tag">Testing</span>
-                            <span class="tag">Arquitectura de Software</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-head">
+                <span class="section-num mono">03</span>
+                <h2 class="section-title">Proyectos</h2>
+                <p class="section-sub">Proyectos reales: los que mantengo en producción para la empresa, MatchPoint por mi cuenta, y un trabajo académico.</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="proyectos">
-        <div class="container">
-            <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-grid">
-                <article class="project-card">
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type mono">producción · interna</span>
+                        <span class="project-index mono">/01</span>
+                    </div>
                     <div class="project-image">
-                        <img src="./assets/imagenes/panel-alertas.webp" alt="Panel de alertas del automatizador" loading="lazy" decoding="async">
+                        <img src="./assets/imagenes/Automatizador.webp" alt="Automatizador de Precios y Stock" loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
-                        <h3>Panel de alertas</h3>
+                        <h3>Automatizador de Precios &amp; Stock</h3>
                         <p>
-                            Aplicacion interna de alertas del Automatizador de Precios/Stock desarrollada con Node.js, Express y MySQL, con arquitectura por capas (routes, controllers, services y repositories). Incluye interfaz web modular en HTML, CSS y JavaScript nativo, carga de archivos con Multer, reglas y validaciones de alertas, y envio de notificaciones por GMAIL via SMTP con Nodemailer, integrada al outbox de MELI en un entorno interno cerrado.
+                            Sincronización end-to-end entre Google Sheets, MySQL y la API de Mercado Libre:
+                            webhook thin, cola de jobs con dedupe/catch-up y runner en background. Outbox
+                            pattern (latest-wins), retry/backoff, rate limit por cuenta y auditoría completa
+                            con logs estructurados por etapa.
                         </p>
                         <div class="tags">
                             <span class="tag">Node.js</span>
-                            <span class="tag">Express</span>
+                            <span class="tag">Mercado Libre API</span>
+                            <span class="tag">Google APIs</span>
                             <span class="tag">MySQL</span>
-                            <span class="tag">JavaScript modular nativo</span>
-                            <span class="tag">Multer</span>
-                            <span class="tag">Nodemailer</span>
-                            <span class="tag">SMTP / correo saliente</span>
-                            <span class="tag">Integracion con outbox de MELI</span>
-                            <span class="tag">Arquitectura por capas: routes, controllers, services y repositories</span>
+                            <span class="tag">Jobs Queue</span>
+                            <span class="tag">Outbox Pattern</span>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type mono">producción · interna</span>
+                        <span class="project-index mono">/02</span>
+                    </div>
                     <div class="project-image">
-                        <img src="./assets/imagenes/loginTM.webp" alt="Pañorama ServidorMain - Login">
+                        <img src="./assets/imagenes/loginTM.webp" alt="Aplicación de logística en tiempo real" loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
-                        <h3>Aplicacion logistica</h3>
+                        <h3>Plataforma de Logística Realtime</h3>
                         <p>
-                            Aplicacion interna de logistica construida con Express + Socket.IO y MySQL, con arquitectura por capas, sesiones con cookies firmadas + JWT opaco y store en DB. Incluye monitoreo de actividad/inactividad en tiempo real (WebSocket + SSE), gestion de pedidos/productos para revision y empaquetado, y control operativo en portal cerrado con validaciones, asignaciones y trazabilidad.
+                            Portal interno de operaciones con Express + Socket.IO y MySQL: monitoreo de
+                            actividad en tiempo real (WebSocket + SSE), gestión de pedidos y productos para
+                            revisión y empaquetado, sesiones con cookies firmadas + JWT opaco con store en DB,
+                            y trazabilidad completa de asignaciones.
                         </p>
                         <div class="tags">
                             <span class="tag">Node.js</span>
-                            <span class="tag">Express</span>
                             <span class="tag">Socket.IO</span>
+                            <span class="tag">SSE</span>
                             <span class="tag">MySQL</span>
                             <span class="tag">JWT</span>
-                            <span class="tag">SSE</span>
                             <span class="tag">Arquitectura por capas</span>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type mono">producción · interna</span>
+                        <span class="project-index mono">/03</span>
+                    </div>
                     <div class="project-image">
-                        <img src="./assets/imagenes/Automatizador.webp" alt="Automatizador MELI y Google APIs" class="project-image-automatizador">
+                        <img src="./assets/imagenes/panel-alertas.webp" alt="Panel de alertas del Automatizador" loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
-                        <h3>Automatizador de Precios y Stock</h3>
+                        <h3>Panel de Alertas</h3>
                         <p>
-                            Automatizador end-to-end con webhook thin, cola de jobs con dedupe/catch-up y
-                            runner en background para sync modular de planilla a DB. Integra Google APIs y
-                            la API de Mercado Libre para precio, stock y estado_publicacion, con outbox pattern
-                            (latest-wins), retry/backoff, rate limit por cuenta y auditoria completa en MySQL
-                            mediante sync_runs, sync_changes y logs estructurados por etapa.
+                            Aplicación interna de alertas del Automatizador de Precios/Stock: Node.js,
+                            Express y MySQL con arquitectura por capas. Carga de archivos con Multer,
+                            reglas y validaciones de alertas, y notificaciones por email vía SMTP con
+                            Nodemailer, integrada al outbox de MELI en un entorno cerrado.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Multer</span>
+                            <span class="tag">Nodemailer</span>
+                            <span class="tag">SMTP</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type mono">producción · interna</span>
+                        <span class="project-index mono">/04</span>
+                    </div>
+                    <div class="project-image project-image-placeholder">
+                        <div class="placeholder-content mono">
+                            <span class="placeholder-icon">⧉</span>
+                            <span>Imagen próximamente</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Preguntas MELI</h3>
+                        <p>
+                            Automatización de respuestas a preguntas de compradores en Mercado Libre.
+                            Todavía en desarrollo — pronto sumo el detalle completo.
                         </p>
                         <div class="tags">
                             <span class="tag">Mercado Libre API</span>
-                            <span class="tag">Google APIs</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Webhooks</span>
-                            <span class="tag">Jobs Queue</span>
-                            <span class="tag">Outbox Pattern</span>
-                            <span class="tag">Auditoria</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/imagenes/to-do.webp" alt="Tareas To-Do">
-                    </div>
-                    <div class="project-content">
-                        <h3>Tareas To-Do</h3>
-                        <p>
-                            Aplicación web para gestión de tareas construida con Node.js y Express. Persistencia en JSON como decisión técnica deliberada para priorizar simplicidad y foco en la lógica sin dependencias externas. Incluye validaciones de datos y manejo de estados: lista vacía, errores de lectura y datos inválidos.
-                        </p>
-                        <div class="tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express.js</span>
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">JSON</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/franpipito/tareas-crud-node-express-json" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://tareasfrancopipito.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <span>Demo</span>
-                            </a>
+                            <span class="tag">Próximamente</span>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/imagenes/guia-eventos-virtuales.webp" alt="Sistema de Gestion de Eventos">
+                <article class="project-card project-card-mp reveal">
+                    <div class="project-top">
+                        <span class="project-type mono accent">independiente · app store</span>
+                        <span class="project-index mono">/05</span>
+                    </div>
+                    <div class="project-image project-image-mp">
+                        <div class="mp-mini mono">
+                            <span class="mp-mini-logo">Match<span class="accent">Point</span></span>
+                            <span class="mp-mini-tag">Tu juego. Tu ranking.</span>
+                            <span class="mp-mini-badge"> En revisión · App Store</span>
+                        </div>
                     </div>
                     <div class="project-content">
-                        <h3>Sistema de Gestion de Eventos</h3>
+                        <h3>MatchPoint</h3>
                         <p>
-                            Aplicación de escritorio en C#/.NET con lógica de negocio para gestión de eventos, clientes y costos. Implementación de reglas de negocio, validaciones para evitar inconsistencias y separación de responsabilidades.
+                            App móvil para organizar partidos de pádel amateur: partidos por nivel y zona,
+                            resultados confirmados entre jugadores, ranking con puntos, calificaciones y
+                            chat por partido. Proyecto personal, en revisión en el App Store.
                         </p>
                         <div class="tags">
-                            <span class="tag">C#</span>
-                            <span class="tag">.NET</span>
+                            <span class="tag">React Native</span>
+                            <span class="tag">Expo</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">React Query</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/franpipito/event-manager-backend-csharp" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <span>GitHub</span>
-                            </a>
+                            <a href="#matchpoint" class="project-link">Ver en detalle ↑</a>
+                            <a href="https://matchpointapp.lovable.app/" class="project-link" target="_blank" rel="noopener noreferrer">Landing ↗</a>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type mono">académico · uade</span>
+                        <span class="project-index mono">/06</span>
+                    </div>
                     <div class="project-image">
-                        <img src="./assets/imagenes/Registrar-una-agencia-de-viajes-en-argentina.webp" alt="Agencia de Turismo">
+                        <img src="./assets/imagenes/guia-eventos-virtuales.webp" alt="Sistema de Gestión de Eventos" loading="lazy" decoding="async">
                     </div>
                     <div class="project-content">
-                        <h3>Agencia de Turismo</h3>
+                        <h3>Sistema de Gestión de Eventos</h3>
                         <p>
-                            Sistema de gestión para agencia de viajes desarrollado en C#/.NET. Incluye ABM de destinos, reservas y panel administrativo con validaciones y manejo de datos relacionales.
+                            Aplicación de escritorio en C#/.NET para gestión de eventos, clientes y costos.
+                            Reglas de negocio, validaciones para evitar inconsistencias y separación de
+                            responsabilidades aplicando POO y buenas prácticas.
                         </p>
                         <div class="tags">
                             <span class="tag">C#</span>
                             <span class="tag">.NET</span>
+                            <span class="tag">POO</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/franpipito/AgenciaDeTurismo" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <span>GitHub</span>
-                            </a>
+                            <a href="https://github.com/franpipito/event-manager-backend-csharp" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                         </div>
                     </div>
                 </article>
@@ -389,104 +442,128 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contacto">
+    <!-- ============ TRAYECTORIA ============ -->
+    <section class="experience section" id="experiencia">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Hablemos</h3>
-                    <p>
-                        Estoy disponible para nuevos proyectos y oportunidades. 
-                        No dudes en contactarme a traves del formulario o por los siguientes medios:
-                    </p>
-                    <div class="contact-details">
-                        <!-- Updated contact icons to use SVG files -->
-                        <div class="contact-item">
-                            <img src="./assets/imagenes/email-svgrepo-com (1).svg" alt="Email" class="contact-icon-svg">
-                            <a href="mailto:franpipito7@gmail.com">franpipito7@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <img src="./assets/imagenes/GitHub.svg" alt="GitHub" class="contact-icon-svg">
-                            <a href="https://github.com/francopipito" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        </div>
-                        <div class="contact-item">
-                            <img src="./assets/imagenes/Linkedin.svg" alt="LinkedIn" class="contact-icon-svg">
-                            <a href="https://linkedin.com/in/francopipito" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        </div>
+            <div class="section-head">
+                <span class="section-num mono">04</span>
+                <h2 class="section-title">Trayectoria</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">sep 2025 — hoy</span>
+                        <h3>Full Stack Developer · <span class="accent">TodoMicro</span></h3>
+                        <p>
+                            Desarrollo y mantenimiento de aplicaciones internas en producción con
+                            ownership técnico end-to-end.
+                        </p>
+                        <ul class="timeline-list">
+                            <li>APIs con Node.js/Express: rutas, controladores y validaciones de negocio sobre arquitectura por capas.</li>
+                            <li>Integraciones con Mercado Libre API y Google APIs para sincronizar precios, stock y publicaciones.</li>
+                            <li>MySQL en entorno productivo: CRUD, joins, optimización de consultas y auditoría de sincronizaciones.</li>
+                            <li>Testing de endpoints, logs estructurados, refactors y code reviews.</li>
+                        </ul>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">2026 — hoy</span>
+                        <h3>Desarrollador independiente · <span class="accent">MatchPoint</span></h3>
+                        <p>
+                            Producto propio de la idea al App Store: research del problema, diseño en Figma,
+                            desarrollo mobile + backend y proceso completo de publicación con los requisitos
+                            de privacidad de Apple.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">ene 2020 — sep 2025</span>
+                        <h3>Gestión operativa · Emprendimiento familiar</h3>
+                        <ul class="timeline-list">
+                            <li>Coordinación de operaciones diarias y liderazgo de un equipo de 5 personas.</li>
+                            <li>Mejoras de control e inventario que redujeron faltantes un 15%.</li>
+                            <li>Digitalización de procesos y registros, automatizando seguimiento y análisis de datos.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker timeline-marker-edu"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date mono">2023 — presente</span>
+                        <h3>Ingeniería Informática · <span class="accent">UADE</span></h3>
+                        <p>
+                            Estudiante avanzado (2025 — presente), iniciado en UNAJ (2023 — 2025, promedio 8.1).
+                            POO con Java, estructuras de datos, bases de datos relacionales, SOLID,
+                            clean code y fundamentos de arquitecturas distribuidas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact section" id="contacto">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-num mono">05</span>
+                <h2 class="section-title">¿Armamos equipo?</h2>
+                <p class="section-sub">Busco sumarme a un equipo donde seguir creciendo como full stack. Si tenés un proyecto o una propuesta, escribime.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info reveal">
+                    <div class="contact-card mono">
+                        <div class="contact-card-head">
+                            <span class="contact-logo mono">FP</span>
+                            <span>contact --franco</span>
+                        </div>
+                        <a class="contact-line" href="mailto:franpipito7@gmail.com"><span class="contact-key">email</span> franpipito7@gmail.com</a>
+                        <a class="contact-line" href="https://github.com/franpipito" target="_blank" rel="noopener noreferrer"><span class="contact-key">github</span> /franpipito ↗</a>
+                        <a class="contact-line" href="https://linkedin.com/in/francopipito" target="_blank" rel="noopener noreferrer"><span class="contact-key">linkedin</span> /in/francopipito ↗</a>
+                        <a class="contact-line" href="./assets/imagenes/FRANCO PIPITO - CV 2026 (4).pdf" download><span class="contact-key">cv</span> descargar.pdf ↓</a>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact">
                     <input type="hidden" name="subject" id="emailSubject" value="Nuevo contacto desde portfolio">
                     <p hidden>
                         <label>No completar este campo: <input name="bot-field"></label>
                     </p>
                     <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            required 
-                            aria-required="true"
-                            placeholder="Tu nombre completo"
-                        >
+                        <label for="name" class="mono">// nombre</label>
+                        <input type="text" id="name" name="name" required aria-required="true" placeholder="Tu nombre completo">
                         <span class="error-message" id="nameError"></span>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            required 
-                            aria-required="true"
-                            placeholder="tu@email.com"
-                        >
+                        <label for="email" class="mono">// email</label>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="tu@email.com">
                         <span class="error-message" id="emailError"></span>
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            rows="5" 
-                            required 
-                            aria-required="true"
-                            placeholder="Escribe tu mensaje aqui..."
-                        ></textarea>
+                        <label for="message" class="mono">// mensaje (opcional)</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Contame sobre tu proyecto o propuesta..."></textarea>
                         <span class="error-message" id="messageError"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                    <div class="form-error" id="formError">
-                        No se pudo enviar el mensaje. Intenta nuevamente en unos segundos.
-                    </div>
-                    <div class="form-success" id="formSuccess">
-                        ¡Mensaje enviado con exito! Te respondere pronto.
-                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Enviar mensaje <span class="btn-arrow">→</span></button>
+                    <div class="form-error" id="formError">No se pudo enviar el mensaje. Intentá de nuevo en unos segundos.</div>
+                    <div class="form-success" id="formSuccess">¡Mensaje enviado! Te respondo pronto.</div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ============ FOOTER ============ -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Franco Pipito. Todos los derechos reservados.</p>
-                <div class="footer-links">
-                    <!-- Updated footer icons to use SVG files -->
-                    <a href="mailto:franpipito7@gmail.com" aria-label="Email">
-                        <img src="./assets/imagenes/email-svgrepo-com (1).svg" alt="Email" class="footer-icon-svg">
-                    </a>
-                    <a href="https://github.com/francopipito" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <img src="./assets/imagenes/GitHub.svg" alt="GitHub" class="footer-icon-svg">
-                    </a>
-                    <a href="https://linkedin.com/in/francopipito" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <img src="./assets/imagenes/Linkedin.svg" alt="LinkedIn" class="contact-icon-svg">
-                    </a>
-                </div>
+        <div class="container footer-content">
+            <p class="mono">© 2026 franco.pipito — diseñado y construido a mano</p>
+            <div class="footer-links mono">
+                <a href="mailto:franpipito7@gmail.com">email</a>
+                <a href="https://linkedin.com/in/francopipito" target="_blank" rel="noopener noreferrer">linkedin</a>
             </div>
         </div>
     </footer>
@@ -494,9 +571,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-

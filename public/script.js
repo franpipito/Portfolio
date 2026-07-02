@@ -1,85 +1,154 @@
 // ===================================
-// Navigation & Mobile Menu
+// Navegación y menú mobile
 // ===================================
 
 const navbar = document.getElementById("navbar")
 const menuToggle = document.getElementById("menuToggle")
 const navLinks = document.getElementById("navLinks")
-const navLinkItems = document.querySelectorAll(".nav-links a")
 
-// Navbar scroll effect
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled")
-  } else {
-    navbar.classList.remove("scrolled")
-  }
-})
+  navbar.classList.toggle("scrolled", window.scrollY > 30)
+}, { passive: true })
 
-// Mobile menu toggle
 menuToggle.addEventListener("click", () => {
-  menuToggle.classList.toggle("active")
-  navLinks.classList.toggle("active")
+  const open = navLinks.classList.toggle("active")
+  menuToggle.classList.toggle("active", open)
+  menuToggle.setAttribute("aria-expanded", String(open))
 })
 
-// Close mobile menu when clicking on a link
-navLinkItems.forEach((link) => {
+navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuToggle.classList.remove("active")
     navLinks.classList.remove("active")
+    menuToggle.setAttribute("aria-expanded", "false")
   })
 })
 
 // ===================================
-// Typing Effect
+// Barra de progreso de scroll
 // ===================================
 
-const typingText = document.getElementById("typingText")
-const textToType = "Full Stack Developer"
-let charIndex = 0
+const scrollProgress = document.getElementById("scrollProgress")
 
-function typeText() {
-  if (charIndex < textToType.length) {
-    typingText.textContent = textToType.substring(0, charIndex + 1)
+window.addEventListener("scroll", () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight
+  scrollProgress.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : "0%"
+}, { passive: true })
+
+// ===================================
+// Glow que sigue al cursor + spotlight en cards
+// ===================================
+
+const cursorGlow = document.getElementById("cursorGlow")
+const spotlightCards = document.querySelectorAll(".bento-card, .project-card")
+const finePointer = window.matchMedia("(pointer: fine)").matches
+
+if (finePointer) {
+  document.addEventListener("mousemove", (e) => {
+    cursorGlow.style.left = `${e.clientX}px`
+    cursorGlow.style.top = `${e.clientY}px`
+  }, { passive: true })
+
+  spotlightCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect()
+      card.style.setProperty("--mx", `${e.clientX - rect.left}px`)
+      card.style.setProperty("--my", `${e.clientY - rect.top}px`)
+    })
+  })
+} else {
+  cursorGlow.style.display = "none"
+}
+
+// ===================================
+// Terminal: tipeo en loop
+// ===================================
+
+const terminalTyped = document.getElementById("terminalTyped")
+const commands = [
+  "npx expo run:ios --configuration Release",
+  "npm run deploy -- --production",
+  "node sync-meli.js --account=all",
+  'git commit -m "ship it 🚀"',
+]
+let cmdIndex = 0
+let charIndex = 0
+let deleting = false
+
+function typeLoop() {
+  if (!terminalTyped) return
+  const current = commands[cmdIndex]
+
+  if (!deleting) {
     charIndex++
-    setTimeout(typeText, 80)
+    terminalTyped.textContent = current.slice(0, charIndex)
+    if (charIndex === current.length) {
+      deleting = true
+      setTimeout(typeLoop, 2200)
+      return
+    }
+    setTimeout(typeLoop, 55 + Math.random() * 60)
+  } else {
+    charIndex--
+    terminalTyped.textContent = current.slice(0, charIndex)
+    if (charIndex === 0) {
+      deleting = false
+      cmdIndex = (cmdIndex + 1) % commands.length
+      setTimeout(typeLoop, 500)
+      return
+    }
+    setTimeout(typeLoop, 25)
   }
 }
 
-// Start typing effect when page loads
-window.addEventListener("load", () => {
-  setTimeout(typeText, 500)
-})
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-// ===================================
-// Scroll Animations
-// ===================================
-
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+if (reducedMotion) {
+  if (terminalTyped) terminalTyped.textContent = commands[0]
+} else {
+  setTimeout(typeLoop, 900)
 }
 
-const observer = new IntersectionObserver((entries) => {
+// ===================================
+// Reveal on scroll + contadores animados
+// ===================================
+
+function animateCount(el) {
+  const target = Number.parseFloat(el.dataset.count)
+  const suffix = el.dataset.suffix || ""
+  const decimals = el.dataset.count.includes(".") ? 1 : 0
+  const duration = 1400
+  const start = performance.now()
+
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1)
+    const eased = 1 - Math.pow(1 - progress, 3)
+    el.textContent = (target * eased).toFixed(decimals) + suffix
+    if (progress < 1) requestAnimationFrame(tick)
+  }
+
+  requestAnimationFrame(tick)
+}
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible")
-    }
+    if (!entry.isIntersecting) return
+    entry.target.classList.add("in-view")
+    entry.target.querySelectorAll("[data-count]").forEach((counter) => {
+      if (!reducedMotion) {
+        animateCount(counter)
+      } else {
+        counter.textContent = counter.dataset.count + (counter.dataset.suffix || "")
+      }
+    })
+    observer.unobserve(entry.target)
   })
-}, observerOptions)
+}, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" })
 
-// Observe all sections and cards for fade-in animation
-const animatedElements = document.querySelectorAll(
-  ".skill-card, .timeline-item, .project-card, .contact-info, .contact-form",
-)
-
-animatedElements.forEach((el) => {
-  el.classList.add("fade-in")
-  observer.observe(el)
-})
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el))
 
 // ===================================
-// Form Validation & Submission
+// Formulario: validación y envío (Netlify Forms)
 // ===================================
 
 const contactForm = document.getElementById("contactForm")
@@ -97,7 +166,6 @@ function encodeFormData(data) {
     .join("&")
 }
 
-// Validation functions
 function validateName(name) {
   return name.trim().length >= 2
 }
@@ -107,23 +175,14 @@ function validateEmail(email) {
   return emailRegex.test(email)
 }
 
-function validateMessage(message) {
-  return message.trim().length >= 10
-}
-
-// Show error message
 function showError(inputId, message) {
-  const errorElement = document.getElementById(`${inputId}Error`)
-  errorElement.textContent = message
+  document.getElementById(`${inputId}Error`).textContent = message
 }
 
-// Clear error message
 function clearError(inputId) {
-  const errorElement = document.getElementById(`${inputId}Error`)
-  errorElement.textContent = ""
+  document.getElementById(`${inputId}Error`).textContent = ""
 }
 
-// Real-time validation
 nameInput.addEventListener("blur", () => {
   if (!validateName(nameInput.value)) {
     showError("name", "El nombre debe tener al menos 2 caracteres")
@@ -134,25 +193,15 @@ nameInput.addEventListener("blur", () => {
 
 emailInput.addEventListener("blur", () => {
   if (!validateEmail(emailInput.value)) {
-    showError("email", "Por favor ingresa un email válido")
+    showError("email", "Por favor ingresá un email válido")
   } else {
     clearError("email")
   }
 })
 
-messageInput.addEventListener("blur", () => {
-  if (!validateMessage(messageInput.value)) {
-    showError("message", "El mensaje debe tener al menos 10 caracteres")
-  } else {
-    clearError("message")
-  }
-})
-
-// Form submission
 contactForm.addEventListener("submit", async (e) => {
   e.preventDefault()
 
-  // Clear previous errors
   clearError("name")
   clearError("email")
   clearError("message")
@@ -161,24 +210,18 @@ contactForm.addEventListener("submit", async (e) => {
 
   let isValid = true
 
-  // Validate all fields
   if (!validateName(nameInput.value)) {
     showError("name", "El nombre debe tener al menos 2 caracteres")
     isValid = false
   }
 
   if (!validateEmail(emailInput.value)) {
-    showError("email", "Por favor ingresa un email válido")
+    showError("email", "Por favor ingresá un email válido")
     isValid = false
   }
 
-  if (!validateMessage(messageInput.value)) {
-    showError("message", "El mensaje debe tener al menos 10 caracteres")
-    isValid = false
-  }
-
-  // If form is valid, send to Netlify Forms
   if (isValid) {
+    const originalLabel = submitButton.innerHTML
     submitButton.disabled = true
     submitButton.textContent = "Enviando..."
     const senderName = nameInput.value.trim()
@@ -223,58 +266,32 @@ contactForm.addEventListener("submit", async (e) => {
       }, 6000)
     } finally {
       submitButton.disabled = false
-      submitButton.textContent = "Enviar Mensaje"
+      submitButton.innerHTML = originalLabel
     }
   }
 })
 
 // ===================================
-// Smooth Scroll Enhancement
+// Smooth scroll con offset del navbar
 // ===================================
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault()
     const target = document.querySelector(this.getAttribute("href"))
-
-    if (target) {
-      const offsetTop = target.offsetTop - 80 // Account for fixed navbar
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      })
-    }
+    if (!target) return
+    e.preventDefault()
+    const offsetTop = target.getBoundingClientRect().top + window.scrollY - 70
+    window.scrollTo({ top: offsetTop, behavior: reducedMotion ? "auto" : "smooth" })
   })
 })
 
 // ===================================
-// Performance: Lazy Loading Images
+// Mensaje en consola
 // ===================================
 
-if ("IntersectionObserver" in window) {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target
-        img.src = img.dataset.src || img.src
-        img.classList.add("loaded")
-        observer.unobserve(img)
-      }
-    })
-  })
-
-  document.querySelectorAll("img").forEach((img) => {
-    imageObserver.observe(img)
-  })
-}
-
-// ===================================
-// Console Message
-// ===================================
-
-console.log("%c¡Hola! 👋", "font-size: 20px; font-weight: bold; color: #00d9ff;")
+console.log("%c¡Hola! 👋", "font-size: 20px; font-weight: bold; color: #4ade80;")
 console.log(
-  "%cGracias por visitar mi portfolio. Si estás viendo esto, ¡probablemente nos llevemos bien!",
-  "font-size: 14px; color: #a0a0b0;",
+  "%cGracias por visitar mi portfolio. Si estás viendo esto, probablemente nos llevemos bien.",
+  "font-size: 14px; color: #93a89a;",
 )
-console.log("%cContáctame: franpipito7@gmail.com", "font-size: 14px; color: #7c3aed;")
+console.log("%c→ franpipito7@gmail.com", "font-size: 14px; color: #22c55e;")

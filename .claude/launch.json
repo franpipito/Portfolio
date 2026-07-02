@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server", "public", "-p", "8899", "-c-1"],
+      "port": 8899
+    }
+  ]
+}
