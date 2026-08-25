@@ -919,7 +919,8 @@ body {
   .skill-row { grid-template-columns: 1fr; gap: 0.4rem; }
 
   .hero-buttons .btn { width: 100%; }
-  .matchpoint .hero-buttons .btn { width: auto; }
+
+  .mp-badge { padding: 0.7rem 1.15rem; }
 
   .timeline { padding-left: 1.6rem; }
   .timeline-marker { left: -1.6rem; }
