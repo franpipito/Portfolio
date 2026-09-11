@@ -983,6 +983,21 @@ body {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
-  .marquee-group { animation-name: none; }
+
+  /* La franja no puede desplazarse, así que en vez de dejarla congelada a
+     mitad de recorrido (con la primera palabra cortada contra el borde) se
+     muestra una sola copia, completa y centrada. */
+  .marquee-viewport { -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { width: 100%; }
+
+  .marquee-group {
+    animation-name: none;
+    width: 100%; flex-wrap: wrap; justify-content: center;
+    gap: 0.55rem 1.2rem; padding-right: 0;
+  }
+
+  .marquee-group ~ .marquee-group { display: none; }
+  .marquee-group > .m-dot:last-child { display: none; }
+
   .cursor-glow { display: none; }
 }
