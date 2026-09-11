@@ -329,21 +329,38 @@ body {
   position: relative; z-index: 2;
 }
 
+/* El degradado va acá y no en .marquee: si enmascaráramos el contenedor se
+   desvanecerían también el fondo y las líneas de borde en los extremos. */
+.marquee-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
 .marquee-track {
-  display: flex; align-items: center; gap: 2.2rem;
-  width: max-content;
+  display: flex; width: max-content;
   font-family: var(--font-display); font-weight: 600;
   font-size: 0.95rem; color: var(--text-dim);
+}
+
+/* Cada grupo se traslada exactamente su propio ancho, así el loop cierra
+   igual a cualquier resolución. Con translateX(-50%) sobre el track el gap
+   del flex rompía la cuenta: saltaba medio gap por vuelta y en pantallas
+   anchas quedaba un hueco vacío contra el borde derecho. */
+.marquee-group {
+  display: flex; align-items: center; gap: 2.2rem;
+  padding-right: 2.2rem;
+  flex-shrink: 0;
   animation: marquee 30s linear infinite;
 }
 
-.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee:hover .marquee-group { animation-play-state: paused; }
 
 .m-dot { color: var(--accent); font-size: 0.5rem; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-100%); }
 }
 
 /* ---------- Section head ---------- */
@@ -966,5 +983,6 @@ body {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .marquee-group { animation-name: none; }
   .cursor-glow { display: none; }
 }
