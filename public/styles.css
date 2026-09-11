@@ -550,6 +550,33 @@ body {
 
 .mp-phone-caption { font-size: 0.72rem; color: var(--text-faint); }
 
+/* --- MatchPoint Clubes: el panel web que completa la plataforma --- */
+
+.mp-clubes {
+  position: relative;
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.mp-clubes-head { margin-bottom: 1.1rem; }
+
+.mp-clubes-kicker {
+  display: block; font-size: 0.72rem; letter-spacing: 0.08em;
+  color: var(--text-faint); margin-bottom: 0.45rem;
+}
+
+.mp-clubes-head h3 {
+  font-family: var(--font-display); font-size: 1.75rem; letter-spacing: -0.02em;
+}
+
+.mp-clubes-lead { color: var(--text-dim); max-width: 68ch; margin-bottom: 2.2rem; }
+
+.mp-clubes-features {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem 2.6rem;
+}
+
 /* ---------- Proyectos ---------- */
 
 .projects-grid {
@@ -881,6 +908,7 @@ body {
   .hero-layout { grid-template-columns: 1fr; gap: 3rem; }
   .hero-terminal { transform: none; max-width: 560px; }
   .mp-layout { grid-template-columns: 1fr; gap: 3.5rem; }
+  .mp-clubes-features { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .contact-content { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr 1fr; }

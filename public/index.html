@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Franco Pipito — Full Stack Developer. Node.js, Express, MySQL, React Native. Creador de MatchPoint, app de pádel disponible en el App Store.">
+    <meta name="description" content="Franco Pipito — Full Stack Developer. Node.js, Express, MySQL, React, React Native. Creador de MatchPoint, app de pádel disponible en el App Store.">
     <meta property="og:title" content="Franco Pipito | Full Stack Developer">
     <meta property="og:description" content="Full Stack Developer con ownership end-to-end. Creador de MatchPoint, app móvil disponible en el App Store.">
     <meta property="og:type" content="website">
@@ -88,7 +88,7 @@
                     <div class="t-line"><span class="t-prompt">$</span> whoami</div>
                     <div class="t-line t-out">franco_pipito · full stack developer</div>
                     <div class="t-line"><span class="t-prompt">$</span> cat stack.txt</div>
-                    <div class="t-line t-out">node · express · mysql · react-native · supabase · typescript</div>
+                    <div class="t-line t-out">node · express · mysql · react · react-native · supabase · typescript</div>
                     <div class="t-line"><span class="t-prompt">$</span> git log --oneline -3</div>
                     <div class="t-line t-out"><span class="t-hash">a3f91c</span> release: matchpoint publicada en el App Store 🚀</div>
                     <div class="t-line t-out"><span class="t-hash">7b20de</span> feat: sync automático precios/stock con MELI API</div>
@@ -106,9 +106,11 @@
             <span>Node.js</span><span class="m-dot">●</span>
             <span>Express</span><span class="m-dot">●</span>
             <span>MySQL</span><span class="m-dot">●</span>
+            <span>React</span><span class="m-dot">●</span>
             <span>React Native</span><span class="m-dot">●</span>
             <span>TypeScript</span><span class="m-dot">●</span>
             <span>Supabase</span><span class="m-dot">●</span>
+            <span>Tailwind</span><span class="m-dot">●</span>
             <span>PostgreSQL</span><span class="m-dot">●</span>
             <span>JavaScript</span><span class="m-dot">●</span>
             <span>C# / .NET</span><span class="m-dot">●</span>
@@ -119,9 +121,11 @@
             <span>Node.js</span><span class="m-dot">●</span>
             <span>Express</span><span class="m-dot">●</span>
             <span>MySQL</span><span class="m-dot">●</span>
+            <span>React</span><span class="m-dot">●</span>
             <span>React Native</span><span class="m-dot">●</span>
             <span>TypeScript</span><span class="m-dot">●</span>
             <span>Supabase</span><span class="m-dot">●</span>
+            <span>Tailwind</span><span class="m-dot">●</span>
             <span>PostgreSQL</span><span class="m-dot">●</span>
             <span>JavaScript</span><span class="m-dot">●</span>
             <span>C# / .NET</span><span class="m-dot">●</span>
@@ -181,25 +185,31 @@
                     <div class="skill-row">
                         <span class="skill-domain">Backend</span>
                         <div class="skill-chips">
-                            <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Supabase</span><span class="chip">Edge Functions</span>
+                            <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Supabase</span><span class="chip">RPC</span><span class="chip">Edge Functions</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-domain">Frontend</span>
+                        <div class="skill-chips">
+                            <span class="chip">React</span><span class="chip">React Router</span><span class="chip">React Query</span><span class="chip">Tailwind</span><span class="chip">Vite</span><span class="chip">HTML5 / CSS3</span>
                         </div>
                     </div>
                     <div class="skill-row">
                         <span class="skill-domain">Mobile</span>
                         <div class="skill-chips">
-                            <span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">TS strict</span><span class="chip">React Query</span>
+                            <span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">React Navigation</span><span class="chip">TS strict</span>
                         </div>
                     </div>
                     <div class="skill-row">
                         <span class="skill-domain">Datos</span>
                         <div class="skill-chips">
-                            <span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Outbox</span><span class="chip">Retry/Backoff</span>
+                            <span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Modelado</span><span class="chip">Optimización de queries</span><span class="chip">Outbox</span><span class="chip">Retry/Backoff</span>
                         </div>
                     </div>
                     <div class="skill-row">
                         <span class="skill-domain">Lenguajes</span>
                         <div class="skill-chips">
-                            <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C#</span>
+                            <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C# / .NET</span>
                         </div>
                     </div>
                 </article>
@@ -269,6 +279,51 @@
                     <div class="mp-phone-glow"></div>
                 </div>
             </div>
+
+            <div class="mp-clubes reveal" id="matchpoint-clubes">
+                <div class="mp-clubes-head">
+                    <span class="mp-clubes-kicker mono">// el otro lado de la plataforma</span>
+                    <h3>MatchPoint <span class="accent">Clubes</span></h3>
+                </div>
+                <p class="mp-clubes-lead">
+                    Panel de administración web para clubes de pádel: gestión de canchas, reservas,
+                    productos y ventas. Es el lado “club” de la plataforma MatchPoint, y comparte base
+                    de datos con la app mobile en tiempo real: una reserva hecha por un jugador aparece
+                    automáticamente en la agenda del club sin recargar la página.
+                </p>
+                <ul class="mp-features mp-clubes-features">
+                    <li>
+                        <span class="mp-feature-num mono">01</span>
+                        <div><strong>Estado de servidor sin store global</strong><br>React 19 con TypeScript estricto y React Query como única fuente de estado de servidor. Sin Redux ni store global de cliente: una decisión deliberada, ya que casi todo el estado proviene del servidor.</div>
+                    </li>
+                    <li>
+                        <span class="mp-feature-num mono">02</span>
+                        <div><strong>Tiempo real con Supabase Realtime</strong><br>Suscripción filtrada por club: cuando llega el evento se invalida la cache, en vez de sincronizar a mano el payload que trae el WebSocket.</div>
+                    </li>
+                    <li>
+                        <span class="mp-feature-num mono">03</span>
+                        <div><strong>Señas con MercadoPago Checkout Pro</strong><br>Cobro de la seña de cada reserva con split de comisión, confirmado por webhook con idempotencia sobre el id de pago.</div>
+                    </li>
+                    <li>
+                        <span class="mp-feature-num mono">04</span>
+                        <div><strong>Control de acceso por rol en la base (RLS)</strong><br>El staff del club ve todas las reservas de su club; el jugador accede solo a las propias, mediante funciones controladas.</div>
+                    </li>
+                    <li>
+                        <span class="mp-feature-num mono">05</span>
+                        <div><strong>Ruteo, formularios e interfaz</strong><br>React Router v6 para el ruteo, React Hook Form + Zod para validar los formularios, y Radix + Tailwind para la interfaz.</div>
+                    </li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">React 19</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Vite</span>
+                    <span class="tag">React Router</span>
+                    <span class="tag">React Query</span>
+                    <span class="tag">Supabase · Postgres + Realtime</span>
+                    <span class="tag">Auth + RLS</span>
+                    <span class="tag">Tailwind</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -278,7 +333,7 @@
             <div class="section-head">
                 <span class="section-num mono">03</span>
                 <h2 class="section-title">Proyectos</h2>
-                <p class="section-sub">Proyectos reales: los que mantengo en producción para la empresa, MatchPoint por mi cuenta, y un trabajo académico.</p>
+                <p class="section-sub">Proyectos reales: los que mantengo en producción para la empresa y la plataforma MatchPoint —app mobile y panel de clubes— que construyo por mi cuenta.</p>
             </div>
 
             <div class="projects-grid">
@@ -434,7 +489,7 @@
 
                 <article class="project-card reveal">
                     <div class="project-top">
-                        <span class="project-type mono">académico · uade</span>
+                        <span class="project-type mono accent">independiente · panel web</span>
                         <span class="project-index mono">/06</span>
                     </div>
                     <div class="project-image project-tile">
@@ -443,28 +498,32 @@
                                 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path d="M50 16 A22 22 0 1 1 45 11.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
                                     <path d="M14 48 A22 22 0 1 1 19 52.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                                    <text x="32" y="41" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="25" text-anchor="middle" fill="currentColor">EM</text>
+                                    <text x="32" y="41" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="25" text-anchor="middle" fill="currentColor">MP</text>
                                 </svg>
                             </span>
-                            <span class="project-tile-logo">Event<span class="accent">Manager</span></span>
-                            <span class="project-tile-tag">Reservas, clientes y costos sin inconsistencias.</span>
-                            <span class="project-tile-badge">académico · UADE</span>
+                            <span class="project-tile-logo">Match<span class="accent">Point</span> Clubes</span>
+                            <span class="project-tile-tag">Canchas, reservas y ventas.</span>
+                            <span class="project-tile-badge">El lado club de MatchPoint</span>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Sistema de Gestión de Eventos</h3>
+                        <h3>MatchPoint Clubes</h3>
                         <p>
-                            Aplicación de escritorio en C#/.NET para gestión de eventos, clientes y costos.
-                            Reglas de negocio, validaciones para evitar inconsistencias y separación de
-                            responsabilidades aplicando POO y buenas prácticas.
+                            Panel de administración web para clubes de pádel, conectado en tiempo real
+                            con MatchPoint: gestión de canchas, reservas, productos y ventas. Comparte
+                            base de datos con la app mobile, así que la reserva que hace un jugador
+                            desde el celular aparece sola en la agenda del club.
                         </p>
                         <div class="tags">
-                            <span class="tag">C#</span>
-                            <span class="tag">.NET</span>
-                            <span class="tag">POO</span>
+                            <span class="tag">React 19</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Vite</span>
+                            <span class="tag">React Query</span>
+                            <span class="tag">Supabase · Realtime</span>
+                            <span class="tag">Tailwind</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/franpipito/event-manager-backend-csharp" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                            <a href="#matchpoint-clubes" class="project-link">Ver en detalle ↑</a>
                         </div>
                     </div>
                 </article>
