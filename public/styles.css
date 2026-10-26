@@ -700,14 +700,30 @@ body {
 
 /* Captura de app: el teléfono asoma desde abajo, con el fondo del tile y el marco del de MatchPoint */
 .project-phone {
+  position: relative;
   display: flex; justify-content: center; align-items: flex-start;
-  padding-top: 1.6rem;
+  width: 100%;
+  padding: 1.6rem 0 0;
+  border: 0; border-bottom: 1px solid var(--border);
+  font: inherit; color: inherit;
+  cursor: zoom-in;
   background:
     radial-gradient(ellipse 70% 90% at 50% 110%, var(--accent-glow), transparent 70%),
     linear-gradient(180deg, #0a130d, #071009);
 }
 
+.project-phone:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.project-phone-hint {
+  position: absolute; right: 0.9rem; bottom: 0.8rem;
+  font-size: 0.66rem; color: var(--accent);
+  border: 1px solid var(--accent-dark); border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  background: rgba(6, 10, 7, 0.85);
+}
+
 .project-phone-frame {
+  display: block;
   width: clamp(150px, 42%, 230px);
   border-radius: 30px 30px 0 0;
   border: 1px solid var(--border-strong); border-bottom: 0;
@@ -724,6 +740,40 @@ body {
 
 .project-card:hover .project-phone .project-phone-frame { transform: translateY(-6px); }
 .project-card:hover .project-phone .project-phone-frame img { transform: none; }
+
+/* --- Captura completa en un <dialog>: se cierra con la X, con Escape o tocando el fondo --- */
+
+.lightbox {
+  margin: auto; padding: 0; border: 0;
+  background: transparent; overflow: visible;
+  max-width: none; max-height: none;
+}
+
+.lightbox::backdrop { background: rgba(3, 6, 4, 0.88); backdrop-filter: blur(6px); }
+
+html:has(.lightbox[open]) { overflow: hidden; }
+
+.lightbox-img {
+  display: block;
+  width: auto; height: auto;
+  max-width: 92vw; max-height: 88vh;
+  border-radius: 28px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+  position: absolute; top: 0; right: 0;
+  transform: translate(35%, -35%);
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.4rem; line-height: 1;
+  color: var(--text); background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+}
+
+.lightbox-close:hover, .lightbox-close:focus-visible { color: var(--accent); border-color: var(--accent-dark); }
 
 /* Placeholder para proyectos sin imagen todavía */
 .project-image-placeholder {

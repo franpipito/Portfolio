@@ -351,11 +351,12 @@
                         <span class="project-type mono accent">independiente · app store</span>
                         <span class="project-index mono">/01</span>
                     </div>
-                    <div class="project-image project-phone">
-                        <div class="project-phone-frame">
+                    <button type="button" class="project-image project-phone" aria-label="Ver captura completa de MiNutria">
+                        <span class="project-phone-frame">
                             <img src="./assets/imagenes/minutria-home.webp" alt="Pantalla principal de MiNutria: gastos del mes, plata disponible y gasto hormiga" loading="lazy" decoding="async">
-                        </div>
-                    </div>
+                        </span>
+                        <span class="project-phone-hint mono" aria-hidden="true">ampliar</span>
+                    </button>
                     <div class="project-content">
                         <h3>MiNutria</h3>
                         <p>
@@ -539,11 +540,12 @@
                         <span class="project-type mono accent">independiente · app store</span>
                         <span class="project-index mono">/06</span>
                     </div>
-                    <div class="project-image project-phone">
-                        <div class="project-phone-frame">
+                    <button type="button" class="project-image project-phone" aria-label="Ver captura completa de MatchPoint">
+                        <span class="project-phone-frame">
                             <img src="./assets/imagenes/matchpoint-home.webp" alt="Pantalla principal de MatchPoint: perfil, ranking y progreso de puntos" loading="lazy" decoding="async">
-                        </div>
-                    </div>
+                        </span>
+                        <span class="project-phone-hint mono" aria-hidden="true">ampliar</span>
+                    </button>
                     <div class="project-content">
                         <h3>MatchPoint</h3>
                         <p>
@@ -789,6 +791,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Captura completa de las apps: la abren los teléfonos de las tarjetas -->
+    <dialog class="lightbox" id="lightbox" aria-label="Captura completa">
+        <button type="button" class="lightbox-close" aria-label="Cerrar">×</button>
+        <img class="lightbox-img" alt="">
+    </dialog>
 
     <script src="script.js"></script>
 </body>

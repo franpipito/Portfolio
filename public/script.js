@@ -147,6 +147,29 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el))
 
 // ===================================
+// Capturas de apps: el teléfono de la tarjeta abre la captura completa
+// ===================================
+
+const lightbox = document.getElementById("lightbox")
+const lightboxImg = lightbox.querySelector(".lightbox-img")
+
+document.querySelectorAll(".project-phone").forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const img = trigger.querySelector("img")
+    lightboxImg.src = img.currentSrc || img.src
+    lightboxImg.alt = img.alt
+    lightbox.showModal()
+  })
+})
+
+lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close())
+
+// El dialog ocupa solo la imagen: un click que llega al propio dialog vino del fondo
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) lightbox.close()
+})
+
+// ===================================
 // Formulario: validación y envío (Netlify Forms)
 // ===================================
 
