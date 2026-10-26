@@ -66,7 +66,6 @@ if (finePointer) {
 
 const terminalTyped = document.getElementById("terminalTyped")
 const commands = [
-  "npx expo run:ios --configuration Release",
   "npm run deploy -- --production",
   "node sync-meli.js --account=all",
   'git commit -m "ship it 🚀"',
@@ -280,6 +279,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const target = document.querySelector(this.getAttribute("href"))
     if (!target) return
     e.preventDefault()
+    // El caso de estudio es un <details>: se abre antes de medir para llegar a su contenido
+    if (target.tagName === "DETAILS") target.open = true
     const offsetTop = target.getBoundingClientRect().top + window.scrollY - 70
     window.scrollTo({ top: offsetTop, behavior: reducedMotion ? "auto" : "smooth" })
   })

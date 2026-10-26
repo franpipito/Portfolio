@@ -6,7 +6,7 @@ Este es mi portfolio personal como desarrollador backend y fullstack, creado uti
 
 ## 🎯 Sobre mí
 
-Soy **Franco Pipito**, estudiante avanzado de Ingeniería Informática y **Backend Developer**, actualmente trabajando como **Fullstack Developer** en TodoMicro. Tengo experiencia en desarrollo con Node.js, Express.js, bases de datos SQL/MySQL, y diseño de interfaces web con HTML, CSS y JavaScript.
+Soy **Franco Pipito**, estudiante de Ingeniería Informática y **Backend Developer**, actualmente trabajando como **Fullstack Developer** en TodoMicro. Tengo experiencia en desarrollo con Node.js, Express.js, bases de datos SQL/MySQL, y diseño de interfaces web con HTML, CSS y JavaScript.
 
 ---
 
