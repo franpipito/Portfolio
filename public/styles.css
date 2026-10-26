@@ -662,6 +662,9 @@ body {
   object-fit: contain;
 }
 
+/* Franja baja para la tarjeta chica: misma proporción que el recorte del workflow */
+.project-image-strip { aspect-ratio: 4 / 1; }
+
 /* Tile de marca para proyectos sin screenshot propia: mismo lenguaje visual del logo FP */
 .project-tile {
   aspect-ratio: auto; min-height: 220px;
